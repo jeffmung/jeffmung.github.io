@@ -32,6 +32,10 @@ disqus-identifier: jeffmung # Add your shortname for Disqus Comment. For example
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
 permalink: /:year/:month/:day/:title/
 plugins:
   - jekyll-paginate
