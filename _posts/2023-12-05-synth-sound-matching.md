@@ -1,12 +1,19 @@
 ---
 layout: post
-title: How to organize a business day
-image: 5.jpg
-date: 2018-02-07 18:11:18 +0200
-tags: [workflow, minimalism]
-categories: productivity
+title: "[논문리뷰] Synthesizer Sound Matching with Differentiable DSP"
+image: https://drive.google.com/uc?export=view&id=1QOavN3bq1bqadxcOYDvhf4hAgxiqDhiq
+date: 2023-12-05
+tags: 
+categories: Paper-Review
 ---
+
+<br><br>
+
+### Introduction
+
 Fam locavore snackwave bushwick +1 sartorial. Selfies portland knausgaard synth. Pop-up art party marfa deep v pitchfork subway tile 3 wolf moon. Ennui pinterest tumblr yr, adaptogen succulents copper mug twee. Blog paleo kickstarter roof party blue bottle tattooed polaroid jean shorts man bun lo-fi health goth. Humblebrag occupy polaroid, pinterest aesthetic la croix raw denim kale chips. 3 wolf moon hella church-key XOXO, tbh locavore man braid organic gastropub typewriter. Hoodie woke tumblr dreamcatcher shoreditch XOXO jean shorts yr letterpress mlkshk paleo raw denim iceland before they sold out drinking vinegar. Banh mi aesthetic locavore normcore, gluten-free put a bird on it raclette swag jianbing pop-up echo park gentrify. Stumptown brooklyn godard tumeric ethical. Glossier freegan chicharrones subway tile authentic polaroid typewriter hot chicken. Thundercats small batch heirloom meggings.
+
+<br><br>
 
 ### Plaid ramps kitsch woke pork belly
 
