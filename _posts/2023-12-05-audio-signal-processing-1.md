@@ -5,6 +5,7 @@ image: "https://drive.google.com/uc?export=view&id=1qr3Vi1glLyi5OYdJc5HQX4obX-43
 date: 2023-12-05
 tags:
 categories: Audio-Signal-Processing
+use_math: true
 ---
 
 <br><br>
@@ -13,7 +14,9 @@ categories: Audio-Signal-Processing
 
 물리학적인 측면에서 소리는 공기, 물, 또는 고체와 같은 매질을 통해 음향파로 전파되는 진동으로 정의됩니다. 진동의 결과로 발생하는 압력 변화를 우리의 귀가 감지하고 뇌에서 그것을 소리라고 인식합니다. 따라서 소리의 특성을 알기 위해서는 소리를 파동의 형태로 이해하고 그 구성 요소를 파악하는 것이 중요합니다.
 
-![img1](https://drive.google.com/uc?export=view&id=1R0CL3J2XOzdnFc2HxmnuoIkJ6iazgwe5)
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=1R0CL3J2XOzdnFc2HxmnuoIkJ6iazgwe5" alt="img1" style="width:800px;height:280px;">
+</p>
 
 <br><br>
 
@@ -23,7 +26,9 @@ categories: Audio-Signal-Processing
 
 주기적인 진동의 소리는 여러 개의 사인파들이 더해진 것으로 구성될 수 있습니다. 다시 말해 어떠한 주기적인 파형도 간단한 사인파들의 조합으로 분석될 수 있습니다. 반면, 주기적이지 않은 형태의 소리도 존재하는데 바람에 흔들리는 물체와 같이 무작위적이거나 두 물체가 충돌하는 경우와 같이 진동이 한 번만 발생하는 경우의 소리가 이에 해당합니다. 따라서 주기적이지 않은 파형에는 연속적인 비주기적 파형(Noise)과 일시적인 비주기적 파형(Pulse) 두 가지가 있습니다.
 
-![img2](https://drive.google.com/uc?export=view&id=1T93Z7ho086ug4Q6tTOrPl7oQXToh6xjb)
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=1T93Z7ho086ug4Q6tTOrPl7oQXToh6xjb" alt="img2">
+</p>
 
 <br><br>
 
@@ -33,3 +38,33 @@ categories: Audio-Signal-Processing
 
 인간의 청각 체계는 주로 20 Hz에서 20,000 Hz(또는 20 kHz) 범위 내의 주파수를 감지할 수 있습니다. 이 범위를 초과하는 소리는 초음파로 분류되고 인간은 이를 인지하지 못합니다. 반면에 20 Hz 미만의 주파수는 저주파로 분류되며, 이 또한 인간의 귀로는 듣기 어렵습니다.
 
+<br><br>
+
+#### 파장 (Wavelength)
+
+소리의 파장은 공기 중에서의 한 주기 진동의 길이입니다. 따라서 파장의 크기는 공기 중에서의 소리의 속도(344m/s)를 주파수로 나눈 값과 같습니다.
+
+예를 들어, 가청 주파수 중 가장 높은 20,000Hz의 소리의 파장을 계산해보면 약 1.7cm입니다. 즉, 만약 어떠한 스피커로 20,000Hz의 고음을 만드려고 한다면 1.7cm의 작은 크기의 공기를 움직일 수 있는 힘만 있으면 됩니다. 큰 에너지보다는 작은 드라이버로 빠르게 움직이게 하는 것이 더 필요한 것입니다. 그리고 수 cm의 장애물만으로도 소리가 전파되는 것을 막을 수 있습니다.
+
+반대로 가청 주파수 중 가장 낮은 20Hz의 소리의 파장은 약 17.2m입니다. 이러한 초저음을 만들기 위해서는 17.2m의 공기를 움직일 수 있는 큰 에너지가 필요합니다. 따라서 이러한 저음이 재생될 때에는 물체가 떨리는 현상이 나타나는 것입니다. 그렇다면 공간의 크기가 17.2m보다 작을 때에는 어떻게 될까요? 이럴 때에는 소리가 퍼져 나가는 것이 아니라 공간 전체를 흔들기 때문에 저음의 소리가 훨씬 잘들리게 됩니다. 마찬가지로 우리가 작은 이어폰으로 재생되는 저음을 잘 들을 수 있는 이유도 이어폰과 고막 사이의 밀폐된 귀 내부 공간이 매우 작기 때문입니다.
+
+<br><br>
+
+#### 진폭 (Amplitude), 강도 (Intensity), 음량 (Loudness)
+
+소리의 진폭과 강도, 음량은 모두 소리의 크기와 관련이 있습니다. 진폭은 공기와 같은 매질이 안정 상태일 때부터 최대 변위까지 움직였을 때의 크기를 말합니다. 따라서 진폭이 클수록 소리의 압력이 크고 소리의 크기도 큽니다.
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=1T6KjxW4sXAQdbs38xUYEUnNgyWz08RbW" alt="img3">
+</p>
+
+
+소리의 강도는 단위면적당 단위시간에 전달되는 에너지(단위면적당 파워)를 말하고 $W/m^2$ 단위로 표시됩니다. 인간이 일반적으로 들을 수 있는 가장 작은 소리의 강도는 약 $10^{-12} W/m^2$입니다. 그리고 인간이 고통을 느끼기 시작하는 강도는 $10 W/m^2$입니다. 즉, 인간은 굉장히 작은 강도의 소리를 인지할 수 있고, 인간이 듣는 소리의 강도는 매우 큰 범위에 걸쳐 있습니다. 따라서 소리의 강도를 표현할 때에는 보통 로그 스케일로 표현하고 절대적인 크기가 아닌 상대적인 크기로 나타냅니다. 이러한 소리의 강도를 표현하는 단위가 $dB$입니다. $dB$의 정의는 들을 수 있는 가장 작은 소리(Threshold of hearing, TOH)를 기준으로 다음의 식과 같습니다.
+
+$$ dB(I_{TOH}) = 10 \cdot \log_{10}(\frac{I}{I_{TOH}}) $$
+
+$I$에 $I_{TOH}$를 넣으면 0이 되므로 인간이 들을 수 있는 가장 작은 소리의 강도인 $10^{-12} W/m^2$가 $0dB$이 됩니다. $dB$은 로그 스케일이기 때문에 아래 표와 같이 소리의 강도가 10배가 되면 10dB씩 증가합니다.
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=1ebPfXOBVdLVHh4_7p8KORbovw3yHGmBE" alt="img4" style="width:660px;height:320px;">
+</p>
