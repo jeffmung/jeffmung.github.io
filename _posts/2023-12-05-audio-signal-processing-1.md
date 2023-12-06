@@ -15,7 +15,7 @@ use_math: true
 물리학적인 측면에서 소리는 공기, 물, 또는 고체와 같은 매질을 통해 음향파로 전파되는 진동으로 정의됩니다. 진동의 결과로 발생하는 압력 변화를 우리의 귀가 감지하고 뇌에서 그것을 소리라고 인식합니다. 따라서 소리의 특성을 알기 위해서는 소리를 파동의 형태로 이해하고 그 구성 요소를 파악하는 것이 중요합니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1R0CL3J2XOzdnFc2HxmnuoIkJ6iazgwe5" alt="img1" style="width:800px;height:280px;">
+  <img src="https://drive.google.com/uc?export=view&id=1R0CL3J2XOzdnFc2HxmnuoIkJ6iazgwe5" alt="img1">
 </p>
 
 <br><br>
@@ -78,3 +78,22 @@ $I$에 $I_{TOH}$를 넣으면 0이 되므로 인간이 들을 수 있는 가장 
 </p>
 
 위의 그래프는 동일한 음량을 갖는 주파수와 강도를 선으로 표시한 것입니다. 같은 dB일 때 저주파와 고주파보다는 1 kHz 부근에서 더 큰 음량을 나타내는 것을 볼 수 있습니다. 예를 들어 60 dB일 때 50 Hz 소리의 음량은 약 20 phon이지만 1 kHz 소리의 음량은 약 60 phon입니다. 인간은 수백에서 수천 Hz 근처의 범위에서 소리를 가장 잘 인지할 수 있기 때문입니다.
+
+<br><br>
+
+#### 음색 (Timbre)
+
+음색은 같은 강도와 주파수, 길이를 갖는 두 소리를 다른 악기로 연주했을 때 구분될 수 있도록 하는 특성입니다. 음색은 주파수나 진폭 등과 같이 한 가지의 물리량이 아닌 여러 차원의 요소들이 결합하여 결정하게 됩니다.
+
+##### Envelope
+
+소리의 envelope는 시간에 따른 소리의 변화를 설명합니다. 가장 일반적인 envelope 모델에는 attack, decay, sustain, release의 네 가지 요소가 있으며 이를 ADSR이라고 부릅니다.
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=1pvp6-_jfDyBN-aK25h2v69MV_JuAWAWD" alt="img6">
+</p>
+
+예를 들어, 피아노 건반을 치는 소리는 attack이 매우 짧지만 바이올린과 같은 현악기의 소리는 attack이 긴 envelope를 갖습니다. 특히 인간이 소리를 구분할 때 가장 큰 영향을 주는 부분은 attack입니다. 따라서 attack을 ID of sound라고도 합니다.
+
+##### Harmonic Content
+
