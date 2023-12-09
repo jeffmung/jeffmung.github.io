@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "[오디오 신호 처리] 1. 소리의 구성 요소"
-image: "https://drive.google.com/uc?export=view&id=1qr3Vi1glLyi5OYdJc5HQX4obX-43iy3x"
-date: 2023-12-05
+image: "https://drive.google.com/uc?export=view&id=1e7HjaUXD2ZGF6I1eUvw5U5-Bv0lRIf4t"
+date: 2023-12-07
 tags:
 categories: Audio-Signal-Processing
 use_math: true
@@ -42,7 +42,7 @@ use_math: true
 
 #### 파장 (Wavelength)
 
-소리의 파장은 공기 중에서의 한 주기 진동의 길이입니다. 따라서 파장의 크기는 공기 중에서의 소리의 속도(344m/s)를 주파수로 나눈 값과 같습니다.
+소리의 파장은 공기 중에서의 한 주기 진동의 길이입니다. 따라서 파장의 크기는 공기 중에서의 소리의 속도(344 m/s)를 주파수로 나눈 값과 같습니다.
 
 예를 들어, 가청 주파수 중 가장 높은 20,000 Hz의 소리의 파장을 계산해보면 약 1.7 cm입니다. 즉, 만약 어떠한 스피커로 20,000 Hz의 고음을 만드려고 한다면 1.7 cm의 작은 크기의 공기를 움직일 수 있는 힘만 있으면 됩니다. 큰 에너지보다는 작은 드라이버로 빠르게 움직이게 하는 것이 더 필요한 것입니다. 그리고 수 cm의 장애물만으로도 소리가 전파되는 것을 막을 수 있습니다.
 
@@ -59,13 +59,13 @@ use_math: true
 </p>
 
 
-소리의 강도는 단위면적당 단위시간에 전달되는 에너지(단위면적당 파워)를 말하고 $W/m^2$ 단위로 표시됩니다. 인간이 일반적으로 들을 수 있는 가장 작은 소리의 강도는 약 $10^{-12} W/m^2$입니다. 그리고 인간이 고통을 느끼기 시작하는 강도는 $10 W/m^2$입니다. 즉, 인간은 굉장히 작은 강도의 소리를 인지할 수 있고, 인간이 듣는 소리의 강도는 매우 큰 범위에 걸쳐 있습니다. 따라서 소리의 강도를 표현할 때에는 보통 로그 스케일로 표현하고 절대적인 크기가 아닌 상대적인 크기로 나타냅니다. 이러한 소리의 강도를 표현하는 단위가 dB입니다. dB의 정의는 들을 수 있는 가장 작은 소리(Threshold of hearing, TOH)를 기준으로 다음의 식과 같습니다.
+소리의 강도는 단위면적당 단위시간에 전달되는 에너지(단위면적당 파워)를 말하고 W/m<sup>2</sup> 단위로 표시됩니다. 인간이 일반적으로 들을 수 있는 가장 작은 소리의 강도는 약 10<sup>-12</sup> W/m<sup>2</sup>입니다. 그리고 인간이 고통을 느끼기 시작하는 강도는 10 W/m<sup>2</sup>입니다. 즉, 인간은 굉장히 작은 강도의 소리를 인지할 수 있고, 인간이 듣는 소리의 강도는 매우 큰 범위에 걸쳐 있습니다. 따라서 소리의 강도를 표현할 때에는 보통 로그 스케일로 표현하고 절대적인 크기가 아닌 상대적인 크기로 나타냅니다. 이러한 소리의 강도를 표현하는 단위가 dB입니다. dB의 정의는 들을 수 있는 가장 작은 소리(Threshold of hearing, TOH)를 기준으로 다음의 식과 같습니다.
 
 <br>
 <center> $dB(I_{TOH}) = 10 \cdot \log_{10}(\frac{I}{I_{TOH}})$ </center>
 <br>
 
-$I$에 $I_{TOH}$를 넣으면 0이 되므로 인간이 들을 수 있는 가장 작은 소리의 강도인 $10^{-12} W/m^2$가 0 dB이 됩니다. dB은 로그 스케일이기 때문에 아래 표와 같이 소리의 강도가 10배가 되면 10 dB씩 증가합니다.
+$I$에 $I_{TOH}$를 넣으면 0이 되므로 인간이 들을 수 있는 가장 작은 소리의 강도인 10<sup>-12</sup> W/m<sup>2</sup>가 0 dB이 됩니다. dB은 로그 스케일이기 때문에 아래 표와 같이 소리의 강도가 10배가 되면 10 dB씩 증가합니다.
 
 <p align="center">
   <img src="https://drive.google.com/uc?export=view&id=1ebPfXOBVdLVHh4_7p8KORbovw3yHGmBE" alt="img4">
@@ -81,6 +81,16 @@ $I$에 $I_{TOH}$를 넣으면 0이 되므로 인간이 들을 수 있는 가장 
 
 <br><br>
 
+#### 위상 (Phase)
+
+같은 주파수를 갖는 두 음파가 있을 때 같은 변위를 갖는 시작점이 어떤 시간만큼 차이를 갖는 것을 위상이 다르다고 표현합니다. 위상은 절대적인 위치가 아니라 상대적인 차이만을 나타내는 개념입니다. 일반적으로 위상의 차이를 각도로 표현하는데, 한 주기를 $2\pi(360^\circ)$로 하여 1/2주기는 $\pi(180^\circ)$가 됩니다.
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=12RD1F6NGSJNY1EezCPY1vbIgOxu66rhb" alt="img6">
+</p>
+
+<br><br>
+
 #### 음색 (Timbre)
 
 음색은 같은 강도와 주파수, 길이를 갖는 두 소리를 다른 악기로 연주했을 때 구분될 수 있도록 하는 특성입니다. 음색은 주파수나 진폭 등과 같이 한 가지의 물리량이 아닌 여러 차원의 요소들이 결합하여 결정하게 됩니다.
@@ -90,10 +100,30 @@ $I$에 $I_{TOH}$를 넣으면 0이 되므로 인간이 들을 수 있는 가장 
 소리의 envelope는 시간에 따른 소리의 변화를 설명합니다. 가장 일반적인 envelope 모델에는 attack, decay, sustain, release의 네 가지 요소가 있으며 이를 ADSR이라고 부릅니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1pvp6-_jfDyBN-aK25h2v69MV_JuAWAWD" alt="img6">
+  <img src="https://drive.google.com/uc?export=view&id=1pvp6-_jfDyBN-aK25h2v69MV_JuAWAWD" alt="img7">
 </p>
 
 예를 들어, 피아노 건반을 치는 소리는 attack이 매우 짧지만 바이올린과 같은 현악기의 소리는 attack이 긴 envelope를 갖습니다. 특히 인간이 소리를 구분할 때 가장 큰 영향을 주는 부분은 attack입니다. 따라서 attack을 ID of sound라고도 합니다.
 
 ##### Harmonic Content
+
+하나의 주파수만을 갖는 사인파를 simple wave라고 합니다. 하지만 우리가 듣는 악기의 소리나 자연에서의 소리 등은 모두 이러한 simple waveform이 아닌 complex wave입니다. Complex wave는 서로 다른 주파수를 갖는 사인파들의 조합으로 만들어지며 각각의 사인파들을 partial이라고 합니다.
+
+이 중 그 소리의 음을 나타내는 가장 낮은 주파수를 fundamental frequency라고 하며, 이것의 정수 배가 되는 주파수의 사인파들을 harmonic partial이라고 합니다. 그리고 정수 배가 아닌 주파수의 사인파들은 inharmonic partial이라고 합니다. 그리고 fundamental frequency 위에 존재하는 모든 주파수들을 합쳐서 overtone이라고 합니다.
+
+예를 들어 아래의 그림은 피아노로 라(A4) 음을 쳤을 때의 주파수 스펙트럼입니다. Fundamental frequency인 440 Hz 위로 정수 배인 880 Hz, 1320 Hz 등의 harmonic partial 피크가 크게 나타나고 그 외의 inharmonic partial들도 존재하는 것을 볼 수 있습니다.
+
+<br>
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=1ZyE_NcDL2HAu70luW0mCR0EElnPrMpQU" alt="img8">
+</p>
+<br>
+
+##### Modulation
+
+Frequency나 amplitude의 modulation도 음색을 결정하는 요소들 중 하나입니다. Frequency modulation은 현악기의 비브라토와 같이 주파수를 위아래로 빠르게 움직이는 것입니다. 또한 amplitude modulation은 볼륨이 빠르게 커졌다 작아졌다 하면서 독특한 음색을 만들어냅니다.
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=1zxISd3s1xYN9nBeiNvNkIlRfCBQyNDHL" alt="img9">
+</p>
 
