@@ -42,7 +42,7 @@ Sampling은 연속적인 시간의 파동으로부터 일정한 시간 간격으
 
 ##### Quantization
 
-디지털 신호를 만들기 위해서는 시간에 대해서 값을 가져오는 sampling과 마찬가지로 진폭에 대해서도 무한한 실수 범위 내에서가 아닌 유한한 개수의 이산적인 값을 가져와야 합니다. 이것을 quantization이라고 하며 이진법의 bit로 정보를 처리하도록 만듭니다. 예를 들어, CD는 16 bit의 bit depth를 가지며 이는 아날로그 신호에서 sampling한 각각의 값들을 실수 그대로가 아닌 정해진 $2^16=65536$개의 숫자들 중에 가장 가까운 것으로 선택해서 기록한다는 의미입니다.
+디지털 신호를 만들기 위해서는 시간에 대해서 값을 가져오는 sampling과 마찬가지로 진폭에 대해서도 무한한 실수 범위 내에서가 아닌 유한한 개수의 이산적인 값을 가져와야 합니다. 이것을 quantization이라고 하며 이진법의 bit로 정보를 처리하도록 만듭니다. 예를 들어, CD는 16 bit의 bit depth를 가지며 이는 아날로그 신호에서 sampling한 각각의 값들을 실수 그대로가 아닌 정해진 $2^{16}=65536$개의 숫자들 중에 가장 가까운 것으로 선택해서 기록한다는 의미입니다.
 
 <p align="center">
   <img src="https://drive.google.com/uc?export=view&id=1ayGoBW0hj4BpmX66npfMRLDH-iu3IwyU" alt="img4">
