@@ -54,7 +54,7 @@ Zero-crossing rate는 신호가 양수에서 음수로, 혹은 음수에서 양�
 <center> $ZCR_{t} = \frac{1}{2} \cdot \sum_{k = t \cdot K}^{(t + 1) \cdot K - 1} | sgn(s(k)) - sgn(s(k + 1)) |$ </center>
 <br>
 
-여기서 sgn(\cdot)은 부호를 나타내며 (+)이면 1, (-)이면 -1, 0이면 0의 값을 갖습니다. ZCR은 purcussive sound의 뾰족하고 짧은 단발성(transient) 변화를 감지하는 데에 유용하고 음악 장르 분류와 구조 분석 등에 활용될 수 있
+여기서 $sgn(\cdot)$은 부호를 나타내며 (+)이면 1, (-)이면 -1, 0이면 0의 값을 갖습니다. ZCR은 purcussive sound의 뾰족하고 짧은 단발성(transient) 변화를 감지하는 데에 유용하고 음악 장르 분류와 구조 분석 등에 활용될 수 있
 습니다. 또한 음성 신호에서 음성이 있는(voiced) 부분과 무음(unvoiced) 부분을 구분하는 데에도 도움이 될 수 있습니다. 음성 신호는 주로 주기적이며 부드럽게 변화하여 ZCR이 상대적으로 낮은 반면 무음 신호는 비주기적이고 급격한 변화가 많아 ZCR이 높아질 수 있는 특성을 가지고 있습니다.
 
 <p align="center">
