@@ -112,11 +112,7 @@ $\varphi = 0.5$일 때의 결과입니다. 이제 정말로 원래의 신호와 
   <img src="https://drive.google.com/uc?export=view&id=19G2TgE10F3sqUd8cPwQbOVF6E0TbNJ3E" alt="center of gravity">
 </p>
 
-실제로 주파수가 1.1, 1.2 Hz와 같은 경우에는 원점을 중심으로 서로 상쇄되어 값이 0이 되는 것을 볼 수 있습니다. 최종적으로 적분까지 한 값의 경우에는 이러한 평균에 샘플 개수가 곱해지게 됩니다. 아래 그림은 샘플 개수가 1000개일 때의 예시입니다. 적분의 결과로 나오는 이 값이 Fourier coefficient가 됩니다. 그리고 앞에서 봤듯이 복소평면의 이 점으로부터 크기, 각도에 해당하는 magnitude와 phase의 정보를 알 수 있습니다.
-
-<p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1uu127N2aTXCKwRy6AB_-OegFOV2IyHZ-" alt="center of gravity">
-</p>
+실제로 주파수가 1.1, 1.2 Hz와 같은 경우에는 원점을 중심으로 서로 상쇄되어 값이 0이 되는 것을 볼 수 있습니다. 이 경우 최종적으로 적분까지 한 결과로 나오는 값인 Fourier coefficient도 역시 0이 될 것입니다. 주파수가 1, 2, 3 Hz인 경우에는 Fourier transform을 통해 위 그림의 원점이 아닌 점과 같이 복소수 값이 나오게 되고, 이를 통해 크기와 각도에 해당하는 magnitude와 phase를 얻을 수 있습니다.
 
 <br><br>
 
@@ -133,3 +129,29 @@ $\varphi = 0.5$일 때의 결과입니다. 이제 정말로 원래의 신호와 
 <p align="center">
   <img src="https://drive.google.com/uc?export=view&id=10ConrO4MAQh1bb4KxEa0eb5aVIFXqfCh" alt="additive synthesizer">
 </p>
+
+<br><br>
+
+## Discrete Fourier Transform
+
+오디오 신호의 Fourier transform은 실제로는 연속적인 아날로그 신호가 아닌 디지털 신호에 대해 연산이 이루어져야 합니다. 이 경우 무한한 범위의 시간이나 주파수를 처리할 수 없기 때문에 위에서 설명한 Fourier transform 공식의 적분 연산을 그대로 수행하는 것이 불가능합니다. 따라서 시간 도메인의 유한한 샘플 $ x_{n} $을 가지고 주파수 도메인의 유한한 Fourier coefficient $ X_{k} $로 변환시키는 discrete Fourier transform 연산이 필요합니다.
+
+<br>
+<center> $ X_{k} = \sum_{n=0}^{N-1} x_{n} \cdot e^{-i 2 \pi (\frac{k}{N}) n} $ </center>
+<br>
+
+여기서 $N$은 처리하는 신호의 샘플 개수입니다. 즉, $ x_{n} := x_{0}, x_{1}, \ldots, x_{N-1} $입니다. 그리고 일반적으로 주파수 도메인의 Fourier coefficient도 $ X_{k} := X_{0}, X_{1}, \ldots, X_{N-1} $로 N개의 개수를 갖도록 합니다. 그렇게 하면 Fourier transform과 inverse Fourier transform이 효율적인 양방향의 행렬(matrix) 연산으로 이루어질 수 있기 때문입니다.
+
+또한 주파수의 범위는 일반적으로 $0$부터 sampling rate까지로 설정합니다. 예를 들어 sampling rate가 $22050$ Hz이면 k번째 Fourier coefficient의 주파수는 $\frac{k}{N} \cdot 22050$ Hz가 됩니다.
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=1vBDp4Y2m5xQmIBAXlXnjQmH7X-rbGDvN" alt="discrete sine wave">
+</p>
+
+위의 그림은 주파수가 각각 1, 4 Hz인 사인파를 합친 신호의 예시입니다. 이때 sampling rate는 64 Hz입니다. 총 신호의 길이가 2초이므로 샘플의 개수 $N$은 128이 됩니다. 이 신호에 대해 discrete Fourier transform을 적용하면 0부터 64 Hz까지의 주파수 범위에서 128개의 Fourier coefficient가 얻어질 것입니다. Discrete Fourier transform을 적용하여 얻은 복소수의 Fourier coefficient들에 절대값을 취해서 magnitude 값을 계산하면 다음 그림과 같이 나옵니다.
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=11MocKgS89u-4HK9gsy4GTrQGz8HmCG3G" alt="discrete sine wave">
+</p>
+
+결과를 보면 예상대로 1 Hz, 4 Hz에서 magnitude가 높게 나오는데, 오른쪽 끝의 60 Hz와 63 Hz에서도 magnitude 피크가 보입니다. 그리고 이는 32 Hz를 중심으로 대칭적인 모양입니다. Fourier transform의 결과는 이처럼 대칭적인 형태로 나오기 때문에 중복적인 정보를 제외하고 처음 절반의 값들만 사용합니다. 대칭의 중심이 되는 주파수는 sampling rate의 1/2인 Nyquist frequency에 해당합니다. 따라서 정보의 손실 없이 원래의 신호를 복원하려면 반드시 필요한 최고 주파수의 두 배 이상으로 sampling rate를 설정해야 합니다.
