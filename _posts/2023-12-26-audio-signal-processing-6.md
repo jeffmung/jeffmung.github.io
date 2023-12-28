@@ -105,3 +105,31 @@ $\varphi = 0.5$일 때의 결과입니다. 이제 정말로 원래의 신호와 
 <p align="center">
   <img src="https://drive.google.com/uc?export=view&id=18YKA-O0cYJr-XI1yM94uMdsJYBicPCBl" alt="signal example">
 </p>
+
+그림을 보면 신호의 구성 주파수인 1, 2 Hz에서는 모양이 아래쪽으로 치우쳐 있는 반면, 그 외의 1.1이나 1.2 Hz 같은 주파수에서는 원점을 중심으로 대칭성이 있는 것을 알 수 있습니다. 따라서 직관적으로 이것을 t에 대해 적분하면 주파수가 1, 2 Hz와 같은 신호의 구성 성분이 아닐 때에는 서로 상쇄되어 0이 될 것이라고 생각됩니다. 적분을 하기 전에 먼저 물리적인 평균에 해당하는 무게중심(center of gravity)의 위치를 확인해보겠습니다.
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=19G2TgE10F3sqUd8cPwQbOVF6E0TbNJ3E" alt="center of gravity">
+</p>
+
+실제로 주파수가 1.1, 1.2 Hz와 같은 경우에는 원점을 중심으로 서로 상쇄되어 값이 0이 되는 것을 볼 수 있습니다. 최종적으로 적분까지 한 값의 경우에는 이러한 평균에 샘플 개수가 곱해지게 됩니다. 아래 그림은 샘플 개수가 1000개일 때의 예시입니다. 적분의 결과로 나오는 이 값이 Fourier coefficient가 됩니다. 그리고 앞에서 봤듯이 복소평면의 이 점으로부터 크기, 각도에 해당하는 magnitude와 phase의 정보를 알 수 있습니다.
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=1uu127N2aTXCKwRy6AB_-OegFOV2IyHZ-" alt="center of gravity">
+</p>
+
+<br><br>
+
+## Inverse Fourier Transform
+
+신호에 Fourier transform을 적용해서 얻은 구성 주파수 성분들의 magnitude와 phase 정보가 있으면 역으로 원래의 신호를 복원하는 것도 가능합니다. 이 과정을 푸리에 역변환(inverse Fourier transform, IFT)이라고 합니다. Inverse Fourier transform의 식은 다음과 같습니다.
+
+<br>
+<center> $ g(t) = \int c_{f} \cdot e^{i 2 \pi f t }df $ </center>
+<br>
+
+이 식의 의미는 각각의 주파수를 갖는 기본적인 사인파(pure tone)에 magnitude를 곱하고 phase를 더해준 뒤 모두 합쳐주라는 것입니다. 이러한 방식으로 소리를 만드는 것은 기본적인 가산 합성(additive synthesis)의 원리이기도 합니다.
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=10ConrO4MAQh1bb4KxEa0eb5aVIFXqfCh" alt="additive synthesizer">
+</p>
