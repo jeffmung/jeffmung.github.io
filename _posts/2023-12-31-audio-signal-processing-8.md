@@ -84,4 +84,18 @@ Mel filter bank의 적용은 이산화된(discrete) 디지털 신호에 대해�
   <img src="https://drive.google.com/uc?export=view&id=1JFSeQb6TNZhjVRVDNtmyO5qSGsNoKDdI" alt="spectrograms">
 </p>
 
-y축을 linear 스케일로 표시한 spectrogram은 실제로 fundamental frequency가 있는 낮은 주파수 영역이 잘 구분되지 않고, y축을 log 스케일로 표시한 spectrogram은 상대적으로 낮은 주파수 영역이 상세하게 보이긴 하지만 frequency bins의 간격은 동일하기 때문에 주파수가 높아질수록 
+y축을 linear 스케일로 표시한 spectrogram은 실제로 fundamental frequency가 있는 낮은 주파수 영역이 잘 구분되지 않고, y축을 log 스케일로 표시한 spectrogram은 상대적으로 낮은 주파수 영역이 상세하게 보이긴 하지만 frequency bin의 간격은 동일하기 때문에 주파수가 높아질수록 많은 수의 frequency bin들이 몰려 있습니다. 반면 mel-spectrogram은 인간이 음정의 차이를 청각적으로 인식하는 것과 유사하게 frequency bin이 나눠져 있는 것을 볼 수 있습니다.
+
+위에서 그린 mel-spectrogram은 mel band의 수를 80개로 설정하여 그린 것입니다. 이번에는 mel band의 개수에 따라 mel-spectrogram이 어떻게 달라지는지 보겠습니다. 아래의 그림은 각각 mel band의 수가 10개, 80개일 때의 mel-spectrogram입니다.
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=1TUEA2q4MNy5Nd41dSn0SPNMPVVwdzDmv" alt="number of mel bands">
+</p>
+
+Mel band의 수가 10개일 때의 그림을 보면 전체 주파수 영역이 정확하게 10개로 나눠져 있는 것을 볼 수 있습니다. 이 경우 해상도가 낮아 각 음들이 다르게 연주되는 것이 구분되지 않습니다. 이 mel spectrogram은 python의 librosa 라이브러리를 사용해서 그린 것인데 실제로 사용한 mel filter bank를 시각화해보면 아래 그림과 같은 모양을 하고 있습니다.
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=1ApwpeUQ1Yae8ZQgTAXdlsQSMsH-bh--M" alt="librosa mel filter bank">
+</p>
+
+Mel filter들의 중심 주파수에서의 weight가 1.0이 아닌 것을 볼 수 있습니다. 이는 필터의 크기가 정규화(normalization)되었기 때문이며 각 필터의 상대적인 에너지가 일관되도록 보장합니다. 필요에 따라 정규화를 수행하지 않는 경우 중심에서의 weight 값이 1.0이 될 수 있지만, 대부분의 경우 정규화를 사용하여 필터의 일관된 에너지 특성을 유지합니다.
