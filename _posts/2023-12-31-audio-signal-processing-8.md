@@ -16,3 +16,72 @@ use_math: true
 
 이와 같은 인간 청각 시스템의 특성을 정확하게 반영하는 것이 음악 및 음성 신호를 분석하고 처리할 때 도움이 되는 경우가 많기 때문에 spectrogram을 그대로 사용하는 것이 아니라 mel scale로 변환하여 사용하는 것이 필요합니다.
 
+<br><br>
+
+## Mel scale
+
+인간의 청각 특성을 반영하여 주파수 간의 간격을 더 자연스럽게 나타내기 위해 도입한 것이 mel scale입니다. Mel scale에서의 1000 mels는 1000 Hz와 같습니다. 이 기준점을 사용하여 mel scale에서 다른 주파수를 계산하게 되는데, 그 공식은 다음과 같습니다.
+
+<br>
+<center> $ m = 2595 \cdot \log(1 + f / 700)  $ </center>
+<br>
+<center> $ f = 700 \cdot (10^{m/2595} - 1)  $ </center>
+<br>
+
+여기서 $f$는 주파수(Hz)이고 $m$은 해당 주파수를 mel로 변환한 값입니다. 이러한 공식은 실험적으로 얻은 결과들을 토대로 설계되었습니다. 아래 그림은 mel scale과 Hertz scale의 관계를 나타낸 그래프입니다.
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=1NRae8r63e9nRtaK7eeMbj5R1hnslSkMX" alt="mel-hertz plot">
+</p>
+
+<br><br>
+
+## Mel spectrogram을 생성하는 방법
+
+Mel spectrogram을 생성하기 위해서는 먼저 mel band의 개수를 정하고, 그에 맞게 mel filter bank를 설계한 뒤 spectrogram에 적용해야 합니다.
+
+### Mel band
+
+Mel band는 mel scale에서 나오는 여러 주파수 대역을 나타냅니다. 예를 들어 mel band의 개수가 10개라는 것은 오디오 신호의 전체 주파수 범위를 10개의 대역으로 나눠서 mel spectrogram에 나타낸다는 의미입니다. Mel band의 개수는 mel spectrogram을 생성할 때 중요한 하이퍼파라미터 중 하나인데, 분석하려는 오디오 데이터의 특성과 작업의 목적에 따라 달라질 수 있습니다.
+
+적은 수의 mel band를 사용하면 주파수 간의 간격이 크게 되어 세부적인 주파수 정보를 잃을 수 있습니다. 반면 많은 수의 mel band를 사용하면 상세한 주파수를 포착할 수 있지만 계산량이 늘어나고 모델이 주파수의 노이즈나 특정한 패턴에 과적합될 가능성이 높아집니다. 일반적으로는 20에서 128 사이의 값을 사용하는 것이 흔하고, 실험과 검증을 통해 최적의 mel band 수를 결정하는 것이 좋습니다.
+
+### Mel filter bank
+
+Mel filter bank는 mel spectrogram을 생성하기 위해 주파수를 mel로 변환하고 필터링하는 데 사용되는 필터의 모음입니다. 각각의 mel filter는 특정 주파수 범위에 대해 가중치를 부여하고, 필터들의 모음이 전체 주파수 스펙트럼을 mel 주파수 영역으로 분해하는 데 기여합니다. 일반적으로 mel filter bank의 각 필터는 삼각형 필터(triangular filter)의 형태를 가지고 있습니다. Mel filter bank는 다음과 같은 과정을 따라 만들어집니다.
+
+1. 오디오 신호의 최저/최고 주파수를 Hz에서 mel로 변환합니다.
+<br>
+<img src="https://drive.google.com/uc?export=view&id=1Igllale379trYJ2FNKZc7AwJC0oN-WoS" alt="mel filter bank 1">
+
+2. 최저/최고 주파수 사이에 정해진 mel band의 개수만큼 동일한 간격의 점을 생성합니다. (그림의 예시는 5개)
+<br>
+<img src="https://drive.google.com/uc?export=view&id=1CeIiem7VuJfmYJKgapsehC-qQ-C3OTY-" alt="mel filter bank 2">
+
+3. 생성된 점들을 다시 Hz로 변환합니다.
+<br>
+<img src="https://drive.google.com/uc?export=view&id=1yXFuP8SXluTs1Wf-JfuIhReJwUfSap5X" alt="mel filter bank 3">
+
+4. 변환된 주파수를 가장 가까운 frequency bin으로 근사합니다. 이 주파수가 각 mel band의 중심이 됩니다.
+<br>
+<img src="https://drive.google.com/uc?export=view&id=1e5tn2eearC2cT8ffHGRP6Thb2Wr49bD5" alt="mel filter bank 4">
+
+5. 각각의 중심을 기준으로 triangular filter들을 생성합니다.
+<br>
+<img src="https://drive.google.com/uc?export=view&id=1c6Clth25vmFBwx2ALESakPQttO30_QML" alt="mel filter bank 5">
+
+### Mel filter bank의 행렬 연산
+
+Mel filter bank의 적용은 이산화된(discrete) 디지털 신호에 대해서 이루어지므로 실제로는 행렬을 만들어서 곱하는 방식으로 연산하게 됩니다. Short-time Fourier transform으로 얻어진 spectrogram $Y$는 (Number of frequency bins, Number of frames)의 shape을 갖습니다 (참고 포스트: [Short-Time Fourier Transform (STFT)](/2023/12/29/audio-signal-processing-7/)). 따라서 mel filter bank의 행렬 $M$은 (Number of mel bands, Number of frequency bins)의 shape을 갖도록 만들어서 행렬곱 $MY$를 하면 (Number of bands, Number of frames)의 shape을 갖는 mel spectrogram이 얻어집니다.
+
+<br><br>
+
+## Mel spectrogram 생성과 시각화
+
+위에서 설명한 mel spectrogram에 대한 이론을 기반으로 실제 생성과 시각화를 하면 어떻게 되는지 살펴보겠습니다. 예시로 사용한 데이터는 피아노로 도레미파솔라시도 음을 차례로 연주한 오디오 신호입니다. 먼저 아래의 그림은 각각 y축을 linear 스케일로 표시한 spectrogram, y축을 log 스케일로 표시한 spectrogram, 그리고 mel-spectrogram입니다.
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=1JFSeQb6TNZhjVRVDNtmyO5qSGsNoKDdI" alt="spectrograms">
+</p>
+
+y축을 linear 스케일로 표시한 spectrogram은 실제로 fundamental frequency가 있는 낮은 주파수 영역이 잘 구분되지 않고, y축을 log 스케일로 표시한 spectrogram은 상대적으로 낮은 주파수 영역이 상세하게 보이긴 하지만 frequency bins의 간격은 동일하기 때문에 주파수가 높아질수록 
