@@ -99,3 +99,9 @@ Mel band의 수가 10개일 때의 그림을 보면 전체 주파수 영역이 �
 </p>
 
 Mel filter들의 중심 주파수에서의 weight가 1.0이 아닌 것을 볼 수 있습니다. 이는 필터의 크기가 정규화(normalization)되었기 때문이며 각 필터의 상대적인 에너지가 일관되도록 보장합니다. 필요에 따라 정규화를 수행하지 않는 경우 중심에서의 weight 값이 1.0이 될 수 있지만, 대부분의 경우 정규화를 사용하여 필터의 일관된 에너지 특성을 유지합니다.
+
+<br><br>
+
+## Reference
+
+[[Youtube] Valerio Velardo - The Sound of AI, "Mel Spectrograms Explained Easily"](https://youtu.be/9GHCiiDLHQ4?feature=shared)
