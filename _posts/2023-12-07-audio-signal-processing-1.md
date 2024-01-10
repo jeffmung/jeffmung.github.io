@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[오디오 신호 처리] 1. 소리의 구성 요소"
-image: "https://drive.google.com/uc?export=view&id=1e7HjaUXD2ZGF6I1eUvw5U5-Bv0lRIf4t"
+image: "https://i.ibb.co/Q61k2dd/thumbnail.png"
 date: 2023-12-07
 tags:
 categories: Audio-Signal-Processing
@@ -15,7 +15,7 @@ use_math: true
 물리학적인 측면에서 소리는 공기, 물, 또는 고체와 같은 매질을 통해 음향파로 전파되는 진동으로 정의됩니다. 진동의 결과로 발생하는 압력 변화를 우리의 귀가 감지하고 뇌에서 그것을 소리라고 인식합니다. 따라서 소리의 특성을 알기 위해서는 소리를 파동의 형태로 이해하고 그 구성 요소를 파악하는 것이 중요합니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1R0CL3J2XOzdnFc2HxmnuoIkJ6iazgwe5" alt="img1">
+  <img src="https://i.ibb.co/kQTWsmg/soundwave.png" alt="sound wave">
 </p>
 
 <br><br>
@@ -27,7 +27,7 @@ use_math: true
 주기적인 진동의 소리는 여러 개의 사인파들이 더해진 것으로 구성될 수 있습니다. 다시 말해 어떠한 주기적인 파형도 간단한 사인파들의 조합으로 분석될 수 있습니다. 반면, 주기적이지 않은 형태의 소리도 존재하는데 바람에 흔들리는 물체와 같이 무작위적이거나 두 물체가 충돌하는 경우와 같이 진동이 한 번만 발생하는 경우의 소리가 이에 해당합니다. 따라서 주기적이지 않은 파형에는 연속적인 비주기적 파형(Noise)과 일시적인 비주기적 파형(Pulse) 두 가지가 있습니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1T93Z7ho086ug4Q6tTOrPl7oQXToh6xjb" alt="img2">
+  <img src="https://i.ibb.co/2j40f8B/waveforms.png" alt="waveforms">
 </p>
 
 <br><br>
@@ -55,7 +55,7 @@ use_math: true
 소리의 진폭과 강도, 음량은 모두 소리의 크기와 관련이 있습니다. 진폭은 공기와 같은 매질이 안정 상태일 때부터 최대 변위까지 움직였을 때의 크기를 말합니다. 따라서 진폭이 클수록 소리의 압력이 크고 소리의 크기도 큽니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1T6KjxW4sXAQdbs38xUYEUnNgyWz08RbW" alt="img3">
+  <img src="https://i.ibb.co/k3VHgBC/amplitude.png" alt="amplitude">
 </p>
 
 
@@ -68,13 +68,13 @@ use_math: true
 $I$에 $I_{TOH}$를 넣으면 0이 되므로 인간이 들을 수 있는 가장 작은 소리의 강도인 10<sup>-12</sup> W/m<sup>2</sup>가 0 dB이 됩니다. dB은 로그 스케일이기 때문에 아래 표와 같이 소리의 강도가 10배가 되면 10 dB씩 증가합니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1ebPfXOBVdLVHh4_7p8KORbovw3yHGmBE" alt="img4">
+  <img src="https://i.ibb.co/PxKpDjY/db.png" alt="db">
 </p>
 
 강도와 달리 음량(Loudness)은 소리의 크기를 인지하는 주관적인 수치입니다. 음량은 소리의 지속시간, 주파수에 따라 달라지며 듣는 사람의 나이에 따라서도 달라지는 값입니다. 음량의 단위로는 phon을 사용합니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1uu7o6hJaOb7HyxLUagMG1_syMp_5s2bY" alt="img5">
+  <img src="https://i.ibb.co/g66K3d0/equal-loudness.png" alt="equal loudness">
 </p>
 
 위의 그래프는 동일한 음량을 갖는 주파수와 강도를 선으로 표시한 것입니다. 같은 dB일 때 저주파와 고주파보다는 1 kHz 부근에서 더 큰 음량을 나타내는 것을 볼 수 있습니다. 예를 들어 60 dB일 때 50 Hz 소리의 음량은 약 20 phon이지만 1 kHz 소리의 음량은 약 60 phon입니다. 인간은 수백에서 수천 Hz 근처의 범위에서 소리를 가장 잘 인지할 수 있기 때문입니다.
@@ -86,7 +86,7 @@ $I$에 $I_{TOH}$를 넣으면 0이 되므로 인간이 들을 수 있는 가장 
 같은 주파수를 갖는 두 음파가 있을 때 같은 변위를 갖는 시작점이 어떤 시간만큼 차이를 갖는 것을 위상이 다르다고 표현합니다. 위상은 절대적인 위치가 아니라 상대적인 차이만을 나타내는 개념입니다. 일반적으로 위상의 차이를 각도로 표현하는데, 한 주기를 $2\pi(360^\circ)$로 하여 1/2주기는 $\pi(180^\circ)$가 됩니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=12RD1F6NGSJNY1EezCPY1vbIgOxu66rhb" alt="img6">
+  <img src="https://i.ibb.co/xLQsNtM/phase.png" alt="phase">
 </p>
 
 <br><br>
@@ -100,7 +100,7 @@ $I$에 $I_{TOH}$를 넣으면 0이 되므로 인간이 들을 수 있는 가장 
 소리의 envelope는 시간에 따른 소리의 변화를 설명합니다. 가장 일반적인 envelope 모델에는 attack, decay, sustain, release의 네 가지 요소가 있으며 이를 ADSR이라고 부릅니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1pvp6-_jfDyBN-aK25h2v69MV_JuAWAWD" alt="img7">
+  <img src="https://i.ibb.co/6ndPHrQ/envelope.jpg" alt="envelope">
 </p>
 
 예를 들어, 피아노 건반을 치는 소리는 attack이 매우 짧지만 바이올린과 같은 현악기의 소리는 attack이 긴 envelope를 갖습니다. 특히 인간이 소리를 구분할 때 가장 큰 영향을 주는 부분은 attack입니다. 따라서 attack을 ID of sound라고도 합니다.
@@ -115,7 +115,7 @@ $I$에 $I_{TOH}$를 넣으면 0이 되므로 인간이 들을 수 있는 가장 
 
 <br>
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1ZyE_NcDL2HAu70luW0mCR0EElnPrMpQU" alt="img8">
+  <img src="https://i.ibb.co/HFYTQtT/partial.png" alt="harmonic contents">
 </p>
 <br>
 
@@ -124,6 +124,15 @@ $I$에 $I_{TOH}$를 넣으면 0이 되므로 인간이 들을 수 있는 가장 
 Frequency나 amplitude의 modulation도 음색을 결정하는 요소들 중 하나입니다. Frequency modulation은 현악기의 비브라토와 같이 주파수를 위아래로 빠르게 움직이는 것입니다. 또한 amplitude modulation은 볼륨이 빠르게 커졌다 작아졌다 하면서 독특한 음색을 만들어냅니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1zxISd3s1xYN9nBeiNvNkIlRfCBQyNDHL" alt="img9">
+  <img src="https://i.ibb.co/HLvKdxW/modulation.png" alt="modulation">
 </p>
 
+<br><br>
+
+## Reference
+
+[[Youtube] Valerio Velardo - The Sound of AI, "Sound and Waveforms"](https://youtu.be/bnHHVo3j124?feature=shared)
+<br>
+[[Youtube] Valerio Velardo - The Sound of AI, "Intensity, Loudness, and Timbre"](https://youtu.be/Jkoysm1fHUw?feature=shared)
+<br>
+[[Youtube] 김도현 대림대교수, "소리의 6 요소! - 주파수, 파장, 진폭, 위상, 배음, 속도"](https://youtu.be/RGbsTdCQR6U?feature=shared)

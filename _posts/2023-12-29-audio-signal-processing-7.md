@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[오디오 신호 처리] 7. Short-Time Fourier Transform (STFT)"
-image: https://drive.google.com/uc?export=view&id=1mstizpUmG0tYji3VQoKXmSgZajgW2nNB
+image: https://i.ibb.co/YL87bBG/thumbnail.png
 date: 2023-12-29
 tags: 
 categories: Audio-Signal-Processing
@@ -35,5 +35,11 @@ Short-time Fourier transform은 시간 도메인에서 신호를 작은 부분 �
 STFT의 큰 장점 중 하나는 소리를 효과적으로 시각화할 수 있다는 것입니다. STFT로 얻어진 Fourier coefficient의 크기(magnitude) 정보를 가지고 가로축이 시간, 세로축이 주파수인 형태로 heatmap을 그리면 spectrogram을 얻을 수 있습니다. 일반적으로 spectrogram의 amplitude는 로그 스케일, 즉 dB로 나타내며 주파수 또한 로그 스케일로 나타내는 경우가 많습니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1cueS7wK0vlexux80-j2NrlWtKXhIprCd" alt="spectrogram">
+  <img src="https://i.ibb.co/xjcB3cJ/spectrogram.png" alt="spectrogram" border="0">
 </p>
+
+<br><br>
+
+## Reference
+
+[[Youtube] Valerio Velardo - The Sound of AI, "Short-Time Fourier Transform Explained Easily"](https://youtu.be/-Yxj3yfvY-4?feature=shared)

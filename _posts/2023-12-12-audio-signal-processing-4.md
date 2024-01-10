@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "[오디오 신호 처리] 4. 오디오 특징의 추출 (How to Extract Audio Features)"
-image: https://drive.google.com/uc?export=view&id=11-2bXqA1N69xgCgqZ5U3ylGvTyIu0EK7
+title: "[오디오 신호 처리] 4. 오디오 특징의 추출 (Audio Features Extraction)"
+image: https://i.ibb.co/P58fq4K/thumbnail.png
 date: 2023-12-12
 tags: 
 categories: Audio-Signal-Processing
@@ -19,7 +19,7 @@ use_math: true
 프레임 기반으로 오디오 신호를 처리하는 이유는 시간에 따라 변하는 오디오의 특성을 잘 포착할 수 있기 때문입니다. 예를 들어, 44.1 kHz의 sampling rate를 갖는 디지털 신호는 0.0227 ms의 샘플 길이를 갖습니다. 이는 사람이 청각적으로 인지할 수 있는 최소 길이인 10 ms보다 훨씬 작은 크기로, 음악이나 음성에서의 시간적인 변화를 포착하기에 너무 짧습니다. 만약 프레임 크기가 512라면 한 프레임의 길이는 약 11.6 ms가 됩니다. 이와 같이 너무 짧지 않은 적절한 시간의 프레임 기반으로 오디오 신호를 처리하면 의미 있는 시간적 변화를 잘 포착할 수 있습니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1L_H2F0gfTn9nl8aQueR5Blsl46M5iify" alt="framing of audio signal processing">
+  <img src="https://i.ibb.co/HBW8mkY/frame.png" alt="framing of audio signal processing">
 </p>
 
 일반적으로 프레임 크기는 2의 거듭제곱으로 설정하는데, 이것은 시간 도메인에서 주파수 도메인으로 변환하는 Fast Fourier Transform(FFT) 알고리즘과 관련이 있습니다. FFT 알고리즘의 특성상 입력 신호의 길이가 2의 거듭제곱일 때 특히 빠르게 동작하고 메모리 사용도 효율적입니다. 주로 sample rate에 따라 한 프레임의 길이가 10 ms에서 30 ms 정도가 되는 크기가 되도록 합니다.
@@ -46,13 +46,13 @@ FFT를 적용할 때에 고려해야 될 문제는 spectral leakage입니다. �
 <center> $w(k) = 0.5 \cdot (1 - \cos(\frac{2\pi k}{K - 1})), \quad k = 1, \cdots, K$ </center>
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1Igw8Jee72WSX6pTWOQMxcn9WBWu9Gi4G" alt="hann window">
+  <img src="https://i.ibb.co/XVf8hGP/hann-window.png" alt="hann window">
 </p>
 
 w(k)는 신호에 곱해주는 weight이며 k는 프레임 안에 있는 샘플 변수입니다. 양 끝이 감소하는 종 모양이기 때문에 이러한 window function을 적용하면 신호의 양 끝이 0에 가깝게 줄어들고 이 부분에서 spectral leakage를 효과적으로 방지할 수 있습니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1g8rZi0smHboYpS8oL2UwJOLkVCoLLYnY" alt="windowing">
+  <img src="https://i.ibb.co/y401Pf2/windowing.png" alt="windowing">
 </p>
 
 ### Overlapping Frames
@@ -60,5 +60,11 @@ w(k)는 신호에 곱해주는 weight이며 k는 프레임 안에 있는 샘플 
 Windowing을 적용하여 spectral leakage의 문제는 해결할 수 있지만 여기서 또다른 문제가 발생합니다. 프레임의 양 끝이 window function으로 인해 0에 가깝게 줄어든다는 것의 의미는 그 부분의 정보가 모두 손실된다는 것입니다. 따라서 이러한 정보의 손실을 막으려면 프레임들을 overlapping 하는 것이 필요합니다. 이렇게 프레임을 overlapping할 때 새로운 프레임이 시작되는 위치와 이전 프레임의 끝 위치 사이의 간격을 hop length라고 합니다. Hop length는 이웃하는 프레임 간의 중첩 정도를 결정하게 되고 일반적으로 샘플 단위로 표현됩니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1KW3sjRXf1lxr0UfW7PxjrGIeiIKoITkb" alt="hop length and frame size">
+  <img src="https://i.ibb.co/bgSbFjG/hop-length.png" alt="hop length and frame size">
 </p>
+
+<br><br>
+
+## Reference
+
+[[Youtube] Valerio Velardo - The Sound of AI, "How to Extract Audio Features"](https://youtu.be/8A-W1xk7qs8?feature=shared)

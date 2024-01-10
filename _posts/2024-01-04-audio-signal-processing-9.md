@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[오디오 신호 처리] 9. Mel-Frequency Cepstral Coefficients (MFCC)"
-image: https://drive.google.com/uc?export=view&id=1cd9lmcfpdiyLcPb-6B_dHEGKquAiEh60
+image: https://i.ibb.co/9tk7R1M/thumbnail.png
 date: 2024-01-04
 tags: 
 categories: Audio-Signal-Processing
@@ -21,7 +21,7 @@ MFCC를 이해하기 위해서는 먼저 cepstrum의 개념에 대해 알아야 
 여기서 $\mathcal{F}[\cdot]$과 $\mathcal{F}^{-1}[\cdot]$은 각각 Fourier transform과 inverse Fourier transform을 나타내고, $x(t)$는 time domain에서의 신호입니다. 아래 그림과 같이 어떤 신호의 log power spectrum에 다시 inverse Fourier transform을 적용해서 얻은 것이 cepstrum이 되는 것입니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1_PTMHJ1FRo9XHWkL6kPoGqCemu3rtLi7" alt="cepstrum">
+  <img src="https://i.ibb.co/p0pSPqg/cepstrum-making.png" alt="cepstrum" border="0">
 </p>
 
 마지막 cepstrum의 그림에서 x축은 quefrency라고 되어 있고 단위는 시간의 단위와 같습니다. Quefrency는 frequency의 글자 순서를 바꾼 것으로, 주파수와 관련이 있는 개념이라는 것을 알 수 있습니다. 왜 이러한 새로운 용어들을 만들고 사용하는지 음성 생성의 관점에서 이해를 해보겠습니다.
@@ -33,7 +33,7 @@ MFCC를 이해하기 위해서는 먼저 cepstrum의 개념에 대해 알아야 
 음성은 기본적으로 발성 기관에서 발생한 파형이 입술 및 구강에서의 변형을 통해 형성됩니다. 발성기관에서 만들어진 목소리가 몸 밖으로 나오기까지 거쳐 가는 공간을 성도(vocal tract)라고 하는데, vocal tract는 고정된 형태가 아니라 유동적으로 변하는 공간이며 그 형태에 따라 소리의 형태가 크게 영향을 받습니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=10-Dba-H6K5YhqqvNVI5KUMwquhTgzUSR" alt="vocal tract">
+  <img src="https://i.ibb.co/Wfp50xB/vocal-tract.png" alt="vocal tract" border="0">
 </p>
 
 음성 생성을 크게 두 가지 과정으로 나누면 먼저 성대가 주기적으로 열리고 닫히면서 glottal pulse가 생성되고, 입술 및 구강에서의 형태 변화를 통해 vocal tract가 filter의 역할을 하며 소리를 변형시킵니다. 이때 glottal pulse의 주기성과 형태는 음성의 음높이(pitch)를 결정하는 기본 주파수에 영향을 미치고 vocal tract filter는 주로 음성의 음색(timbre)과 발음에 큰 영향을 줍니다.
@@ -59,13 +59,13 @@ MFCC를 이해하기 위해서는 먼저 cepstrum의 개념에 대해 알아야 
 이것을 그림으로 나타내면 다음과 같습니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1vBJNz_yBqzPn1ULiDfRYzSq7Mwt9E2Mg" alt="speech signal separation">
+  <img src="https://i.ibb.co/MsS8MxQ/speech-separation.png" alt="speech signal separation" border="0">
 </p>
 
 Inverse discrete Fourier transform(IDFT)을 적용하면 선형적으로 결합된 glottal pulse와 vocal tract frequency response를 분리할 수 있습니다. Frequency domain의 스펙트럼에 IDFT를 적용하면 time domain으로 돌아가지만, 이 경우에는 로그 스펙트럼에 IDFT를 적용하는 것이기 때문에 time domain과는 구분되는 다른 개념이 필요합니다. 따라서 quefrency domain의 cepstrum이라는 개념이 나오게 된 것입니다. Frequency domain에서 빠르게 변화하는 glottal pulse의 요소는 quefrency domain에서 값이 큰 오른쪽에 피크가 위치하고, frequency domain에서 느리게 변화하는 vocal tract frequency response의 요소는 quefrency domain에서 값이 작은 왼쪽에 피크가 위치합니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1mSgaOcrVwZ-kT96r_VipoznzBdhbk8c2" alt="rhamonic in quefrency domain">
+  <img src="https://i.ibb.co/VjMzBgv/rhamonic.png" alt="rhamonic in quefrency domain" border="0">
 </p>
 
 위의 그림은 0 ms 근처에서 vocal tract frequency response에 해당하는 낮은 quefrency의 피크가 나타나고 3 ms 근처에서 glottal pulse에 해당하는 quefrency의 피크가 나타나는 것을 보여줍니다. 그리고 이 첫 번째 피크를 1st rhamonic이라고 합니다. Frequency domain의 1st harmonic에 대응하는 개념입니다. 이러한 quefrency domain의 cepstrum에서 vocal tract frequency respose의 요소만 추출하기 위해서는 low-pass liftering을 적용해줘야 합니다. 이것은 low-pass filtering에 대응하는 개념입니다.
@@ -85,7 +85,7 @@ Cepstrum을 얻는 과정에서 약간의 변형을 통해 MFCC를 생성할 수
 MFCC는 x축이 시간, y축이 계수의 인덱스인 히트맵으로 시각화됩니다. 이때 y축은 맨 아래의 행이 첫 번째 계수이고 맨 위에 있는 행이 마지막 계수입니다. 아래의 그림은 계수의 개수가 13개일 때 음악 신호의 MFCC 스펙트로그램 예시입니다.
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1fBiiiidbV5WWSnubQ9R_5aDXzS3ML70y" alt="MFCC">
+  <img src="https://i.ibb.co/5MYrCsB/mfcc.png" alt="mfcc" border="0">
 </p>
 
 ## Reference
