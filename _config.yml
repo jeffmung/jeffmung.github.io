@@ -39,6 +39,7 @@ incremental: false
 permalink: /:year/:month/:day/:title/
 plugins:
   - jekyll-paginate
+  - jekyll-sitemap
 
 paginate: 7
 paginate_path: "/page/:num/"
