@@ -144,3 +144,27 @@ Context stack은 오디오 신호에서 일정 길이의 부분을 CNN과 같은
 ## 실험
 
 논문에서는 세 가지 태스크에 대한 실험 결과를 보여줍니다. 태스크는 각각 여러 발화자에 대해 학습한 음성 생성, TTS, 음악 생성입니다. 실험 결과로 생성된 예제들은 [구글 딥마인드 블로그](https://deepmind.google/discover/blog/wavenet-a-generative-model-for-raw-audio/)에서 확인 할 수 있습니다.
+
+### Multi-Speaker Speech Generation
+
+여러 발화자에 조건을 둔 음성 생성은 텍스트 없이 발화자의 ID만 원핫 벡터로 만들어 입력으로 넣어주는 방식으로 실험을 진행했습니다. 텍스트를 음성으로 옮기는 것이 아니기 때문에 생성된 오디오가 어떤 내용을 담고 있을지 예상할 수가 없는데, 실제로 딥마인드 블로그에 들어가서 생성된 예시를 들어보면 사람이 말하는 것과 비슷하긴 하지만 실제로 존재하지 않는 단어들을 담은 소리가 납니다.
+
+데이터셋에는 109명의 서로 다른 발화자의 음성들이 담겨 있는데 발화자로 조건을 부여한 하나의 WaveNet 모델로 각각의 특징들을 추출해서 학습할 수 있는 결과를 보여줍니다. 아마 텍스트 조건까지 같이 부여하면 학습 성능이 좀 더 떨어져서 실험을 그렇게 진행하지 않은 것으로 추측되는데, 딥마인드 블로그에서 하나의 영어 문장을 발화자의 목소리를 바꿔가며 생성한 음성 예시를 보여주고 있기는 합니다.
+
+### Text-To-Speech
+
+TTS 실험은 발화자의 ID 없이 텍스트 조건만 부여하여 진행했습니다. 비교군은 선행 연구들인 HMM-driven unit selection concatenative과 [(Gonzalvo et. al., 2016)](https://research.google/pubs/recent-advances-in-google-real-time-hmm-driven-unit-selection-synthesizer/) LSTM-RNN-based statistical parametric [(Zen et. al., 2016)](https://arxiv.org/abs/1606.06061) 음성 생성 모델입니다.
+
+실험 결과를 보면 WaveNet (L)과 WaveNet (L+F)가 있는데 L은 언어적 특성(linguistic feature) 조건을 의미하고 F는 텍스트로부터 logarithmic fundamental frequency($\log F_0$)를 예측하는 외부 모델을 학습시켜 조건으로 넣어주는 것을 의미합니다. $\log F_0$는 생성된 음성의 강세와 억양을 자연스럽게 만드는 것을 도와주기 때문에 평가 결과에 큰 영향을 줍니다. 기본적으로 입력해주는 언어적 특성은 비교군 모델에도 동일하게 사용되었습니다.
+
+<p align="center">
+  <img src="https://i.ibb.co/jL9Pg3Q/wavenet-tts-result.png" alt="wavenet tts result" border="0">
+</p>
+
+위의 그래프에 사용된 선호도 점수는 같은 문장을 입력으로 넣어 생성된 서로 다른 모델들의 음성 샘플들을 실험 참가자들에게 블라인드로 듣게 하여 더 자연스럽게 들리는 것을 선택하도록 한 것입니다. WaveNet이 비교군 모델들보다 더 좋은 성능을 보여주고 영어와 만다린 중국어 모두 $\log F_0$를 넣어줬을 때 훨씬 더 좋은 결과를 나타냅니다.
+
+<p align="center">
+  <img src="https://i.ibb.co/jGfbdC9/wavenet-tts-mos.png" alt="wavenet tts mos" border="0">
+</p>
+
+위의 표는 mean opinion score(MOS) 테스트의 결과입니다. 이 테스트는 실험 참가자가 생성된 음성이 얼마나 자연스러운지 1: Bad, 2: Poor, 3: Fair, 4:Good, 5: Excellent의 다섯 개 점수로 나눠서 평가한 것입니다. 모델로 생성된 것이 아닌 실제 자연 음성을 8-bit-$\mu$-law나 16-bit linear PCM으로 축소시켜 양자화하고 다시 복원한 것과도 크게 차이가 나지 않는 결과도 볼 수 있습니다.
