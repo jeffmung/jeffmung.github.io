@@ -176,3 +176,11 @@ TTS 실험은 발화자의 ID 없이 텍스트 조건만 부여하여 진행했�
 음악 생성에서의 한계는 수용영역의 크기가 너무 작다는 것입니다. TTS나 음성 생성 쪽에서의 실험은 수용영역의 크기를 수백 ms 정도로 설정하여도 좋은 결과를 얻을 수 있는데 음악 생성은 수 초 정도로 길게 설정하더라도 몇 초마다 악기나 볼륨, 장르, 음질 등이 바뀌기 때문에 자연스러운 음악이라고 느껴지기가 어렵습니다. 그래도 딥마인드 블로그에서 YouTube piano 데이터셋 기준으로 생성된 음악 샘플들을 들어보면 꽤 자연스럽게 생성된 것들도 있습니다.
 
 또한 MagnaTagATuna 데이터셋과 같이 태그 정보가 있으면 음성 생성에서와 마찬가지로 장르나 악기 등의 조건을 부여하여 학습하는 것이 가능합니다. 논문에서는 실험 결과 이러한 태그 정보의 조건부 학습이 꽤 잘 작동했다고 하지만 이렇게 생성된 샘플이 공개되어 있거나 평가 결과를 보여주고 있지는 않습니다.
+
+<br><br>
+
+## Reference
+
+[Aaron van den Oord, Sander Dieleman, Heiga Zen, Karen Simonyan, Oriol Vinyals, Alex Graves, Nal Kalchbrenner, Andrew Senior, and Koray Kavukcuoglu. Wavenet: A generative model for raw audio. arXiv preprint arXiv:1609.03499, 2016.](https://arxiv.org/abs/1609.03499)
+
+[Pytorch implementation of WaveNet](https://github.com/vincentherrmann/pytorch-wavenet)

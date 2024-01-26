@@ -161,11 +161,11 @@ $\varphi = 0.5$일 때의 결과입니다. 이제 정말로 원래의 신호와 
 ## Reference
 
 [[Youtube] Valerio Velardo - The Sound of AI, "Demystifying the Fourier Transform: The Intuition"](https://youtu.be/XQ45IgG6rJ4?feature=shared)
-<br>
+
 [[Youtube] Valerio Velardo - The Sound of AI, "Complex Numbers for Audio Signal Processing"](https://youtu.be/DgF4m0AWCgA?feature=shared)
-<br>
+
 [[Youtube] Valerio Velardo - The Sound of AI, "Defining the Fourier Transform with Complex Numbers"](https://youtu.be/KxRmbtJWUzI?feature=shared)
-<br>
+
 [[Youtube] Valerio Velardo - The Sound of AI, "Discrete Fourier Transform Explained Easily"](https://youtu.be/ZUi_jdOyxIQ?feature=shared)
-<br>
+
 [[Youtube] 3Blue1Brown, "But what is the Fourier Transform? A visual introduction."](https://youtu.be/spUNpyF58BY?feature=shared)

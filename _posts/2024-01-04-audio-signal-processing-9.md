@@ -91,5 +91,5 @@ MFCC는 x축이 시간, y축이 계수의 인덱스인 히트맵으로 시각화
 ## Reference
 
 [[Youtube] Valerio Velardo - The Sound of AI, "Mel-Frequency Cepstral Coefficients Explained Easily"](https://youtu.be/4_SH2nfbQZ8?feature=shared)
-<br>
+
 [[Course materials] Amrita University, "Cepstral Analysis of Speech" (2011)](https://vlab.amrita.edu/?sub=3&brch=164&sim=615&cnt=1)

@@ -132,7 +132,7 @@ Frequency나 amplitude의 modulation도 음색을 결정하는 요소들 중 하
 ## Reference
 
 [[Youtube] Valerio Velardo - The Sound of AI, "Sound and Waveforms"](https://youtu.be/bnHHVo3j124?feature=shared)
-<br>
+
 [[Youtube] Valerio Velardo - The Sound of AI, "Intensity, Loudness, and Timbre"](https://youtu.be/Jkoysm1fHUw?feature=shared)
-<br>
+
 [[Youtube] 김도현 대림대교수, "소리의 6 요소! - 주파수, 파장, 진폭, 위상, 배음, 속도"](https://youtu.be/RGbsTdCQR6U?feature=shared)
