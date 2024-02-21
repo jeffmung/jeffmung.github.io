@@ -63,9 +63,7 @@ $$
 모델의 목표는 우도(likelihood) $\small p_{\theta} (x_0)$를 최대화하는 것인데 이것은 추정하기 어려운(intractable) 확률분포입니다. 하지만 이러한 형태의 식은 변분 추론(variational inference)에 의해 다음과 같이 ELBO로 전개되고 모델은 ELBO를 최대화하는 것으로 학습될 수 있습니다.
 
 <br>
-$$
 \begin{align}
     \mathbb{E}_{q_{\text{data}} (x_0)} \log p_{\theta(x_0)} &= \mathbb{E}_{q_{\text{data}}(x_0)} \log \int p_{\theta} (x_{0:T-1} \vert x_T) \cdot p_{\text{latent}} (x_T) d x_{1:T} 
 \end{align}
-$$
 <br>
