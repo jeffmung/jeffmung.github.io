@@ -33,11 +33,11 @@ $\small L$차원의 데이터 $\small x_0 \in \mathbb{R}^L$에 대해서 데이�
 확산 과정은 다음 식과 같이 데이터 $\small x_0$로부터 잠재 변수(latent variable) $\small x_T$로 이어지는 고정된 Markov 체인으로 정의됩니다.
 
 <br>
-$$
+\(
 \begin{align}
 q(x_1, \cdots, x_T \vert x_0) = \prod_{t=1}^{T} q(x_t \vert x_{t-1})
 \end{align}
-$$
+\)
 <br>
 
 이때 각각의 $\small q(x_t \vert x_{t-1})$은 작은 값의 상수 $\small \beta_t$에 대해서 $\small \mathcal{N}(x_t; \sqrt{1 - \beta_t} x_{t-1}, \beta_t I)$로 고정됩니다. 즉, $\small q(x_t \vert x_{t-1})$은 $\small x_{t-1}$의 분포에 작은 가우시안 노이즈를 더하는 것과 같습니다. $\small T$가 충분히 크다면 전체 과정은 분산의 스케쥴 $\small \beta_1, \cdots, \beta_T$에 따라 데이터 $\small x_0$를 점진적으로 잠재 변수 $\small x_T$로 변화시키고 이 잠재 변수의 분포는 등방성(isotropic) 가우시안 분포가 됩니다.
