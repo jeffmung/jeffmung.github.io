@@ -33,11 +33,11 @@ $\small L$차원의 데이터 $\small x_0 \in \mathbb{R}^L$에 대해서 데이�
 확산 과정은 다음 식과 같이 데이터 $\small x_0$로부터 잠재 변수(latent variable) $\small x_T$로 이어지는 고정된 Markov 체인으로 정의됩니다.
 
 <br>
-\\[
-\begin{align}
+
+\begin{equation}
 q(x_1, \cdots, x_T \vert x_0) = \prod_{t=1}^{T} q(x_t \vert x_{t-1})
-\end{align}
-\\]
+\end{equation}
+
 <br>
 
 이때 각각의 $\small q(x_t \vert x_{t-1})$은 작은 값의 상수 $\small \beta_t$에 대해서 $\small \mathcal{N}(x_t; \sqrt{1 - \beta_t} x_{t-1}, \beta_t I)$로 고정됩니다. 즉, $\small q(x_t \vert x_{t-1})$은 $\small x_{t-1}$의 분포에 작은 가우시안 노이즈를 더하는 것과 같습니다. $\small T$가 충분히 크다면 전체 과정은 분산의 스케쥴 $\small \beta_1, \cdots, \beta_T$에 따라 데이터 $\small x_0$를 점진적으로 잠재 변수 $\small x_T$로 변화시키고 이 잠재 변수의 분포는 등방성(isotropic) 가우시안 분포가 됩니다.
@@ -45,11 +45,11 @@ q(x_1, \cdots, x_T \vert x_0) = \prod_{t=1}^{T} q(x_t \vert x_{t-1})
 역방향 과정은 $\small \theta$에 의해 매개변수화(parameterize)된 $\small x_T$로부터 $\small x_0$로 이어지는 Markov 체인으로 정의됩니다.
 
 <br>
-\\[
-\begin{align}
+
+\begin{equation}
 p_{\theta} (x_0, \cdots, x_{T-1} \vert x_T) = \prod_{t=1}^{T} p_{\theta}(x_{t-1} \vert x_t)
-\end{align}
-\\]
+\end{equation}
+
 <br>
 
 이때 $\small p_{\text{latent}}(x_t) = \mathcal{N}(0, I)$는 등방성 가우시안 분포이고 전이 확률 분포 $\small p_{\theta}(x_{t-1} \vert x_t)$는 공유되는 매개변수 $\small \theta$에 의해 $\small \mathcal{N}(x_{t-1}; \mu_{\theta}(x_t, t), \sigma_{\theta}(x_t, t)^2 I)$로 매개변수화됩니다. 즉, $\small \mu_{\theta}$와 $\small \sigma_{\theta}$는 두 개의 입력 $\small x_t \in \mathbb{R}^N$와 $\small t \in \mathbb{N}$를 받고, $\small \mu_{\theta}$는 평균에 해당하는 $\small L$ 차원의 벡터를, $\small \sigma_{\theta}$는 표준편차에 해당하는 실수를 출력합니다. $\small p_{\theta}(x_{t-1} \vert x_t)$의 목표는 확산 과정 중에 추가된 노이즈를 제거하는(denoise) 것입니다.
@@ -65,9 +65,10 @@ p_{\theta} (x_0, \cdots, x_{T-1} \vert x_T) = \prod_{t=1}^{T} p_{\theta}(x_{t-1}
 모델의 목표는 우도(likelihood) $\small p_{\theta} (x_0)$를 최대화하는 것인데 이것은 추정하기 어려운(intractable) 확률분포입니다. 하지만 이러한 형태의 식은 변분 추론(variational inference)에 의해 다음과 같이 ELBO로 전개되고 모델은 ELBO를 최대화하는 것으로 학습될 수 있습니다.
 
 <br>
-\\[
+
 \begin{align}
-    \mathbb{E}_{q_{\text{data}} (x_0)} \log p_{\theta(x_0)} &= \mathbb{E}_{q_{\text{data}}(x_0)} \log \int p_{\theta} (x_{0:T-1} \vert x_T) \cdot p_{\text{latent}} (x_T) d x_{1:T} 
+\mathbb{E}\_{q\_{\text{data}} (x_0)} \log p\_{\theta(x\_0)} &= \mathbb{E}\_{q\_{\text{data}}(x\_0)} \log \int p_{\theta} (x_{0:T-1} \vert x_T) \cdot p_{\text{latent}} (x_T) d x_{1:T}
 \end{align}
-\\]
+
 <br>
+
