@@ -24,7 +24,7 @@ DiffWave는 오디오 합성 분야에 diffusion을 적용한 가장 초기 모�
 
 분자가 서서히 확산하여 완전한 무질서 상태가 되는 것과 같이 데이터를 이루고 있는 구성 요소들이 조금씩 노이즈를 더해가며 움직이면서 최종적으로 화이트 노이즈가 되는 과정을 생각해볼 수 있습니다. 이 과정의 확률 분포를 학습하고 반대 방향으로도 되돌릴 수 있다면 화이트 노이즈를 기존의 데이터와 비슷하게 변화시킬 수도 있을 것입니다. 이러한 아이디어로 개발된 생성 모델이 diffusion 모델입니다.
 
-\(\small L\)차원의 데이터 $\small x_0 \in \mathbb{R}^L$에 대해서 데이터 분포를 $\small q_{\text{data}}(x_0)$라 하고 $\small x_t \in \mathbb{R}^L$을 diffusion 스텝 $\small t = 0, 1, \ldots, T$에 대한 확률 변수라고 정의하겠습니다. 총 $\small T$ 스텝의 diffusion 모델은 정방향 확산 과정(diffusion process)와 역방향 과정(reverse process)으로 이루어져 있습니다. 아래 그림은 두 과정을 나타냅니다.
+$\small L$차원의 데이터 $\small x_0 \in \mathbb{R}^L$에 대해서 데이터 분포를 $\small q_{\text{data}}(x_0)$라 하고 $\small x_t \in \mathbb{R}^L$을 diffusion 스텝 $\small t = 0, 1, \ldots, T$에 대한 확률 변수라고 정의하겠습니다. 총 $\small T$ 스텝의 diffusion 모델은 정방향 확산 과정(diffusion process)와 역방향 과정(reverse process)으로 이루어져 있습니다. 아래 그림은 두 과정을 나타냅니다.
 
 <p align="center">
     <img src="https://i.ibb.co/PrG18xd/diffusion.png" alt="diffusion" border="0">
