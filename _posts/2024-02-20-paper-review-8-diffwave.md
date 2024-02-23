@@ -65,14 +65,12 @@ Diffusion 모델 학습의 손실 함수를 얻는 전체 과정의 전개와 �
 모델의 목표는 우도(likelihood) $\small p_{\theta} (x_0)$를 최대화하는 것인데 이것은 추정하기 어려운(intractable) 확률분포입니다. 하지만 이러한 형태의 식은 변분 추론(variational inference)에 의해 다음과 같이 ELBO로 전개되고 모델은 ELBO를 최대화하는 것으로 학습될 수 있습니다.
 
 <br>
-$$
 \begin{align}
 \mathbb{E}\_{q\_{\text{data}} (x\_0)} \log p\_{\theta}(x\_0)
-&= \mathbb{E}\_{q\_{\text{data}}(x\_0)} \log \int p\_{\theta} (x\_0, \cdots, x\_{T-1} \vert x\_T) \cdot p\_{\text{latent}} (x\_T) d x\_{1:T} \\
-&= \mathbb{E}\_{q\_{\text{data}}(x\_0)} \log \left( \mathbb{E}\_{q(x\_{1:T} \vert x\_0)} \frac{p_{\theta} (x\_0, \cdots, x\_{T-1} \vert x_T) \cdot p_{\text{latent}(x\_T)}}{q(x\_1, \cdots, x\_T \vert x\_0)} \right) \\
+&= \mathbb{E}\_{q\_{\text{data}}(x\_0)} \log \int p\_{\theta} (x\_0, \cdots, x\_{T-1} \vert x\_T) \cdot p\_{\text{latent}} (x\_T) d x\_{1:T} \newline
+&= \mathbb{E}\_{q\_{\text{data}}(x\_0)} \log \left( \mathbb{E}\_{q(x\_{1:T} \vert x\_0)} \frac{p_{\theta} (x\_0, \cdots, x\_{T-1} \vert x_T) \cdot p_{\text{latent}(x\_T)}}{q(x\_1, \cdots, x\_T \vert x\_0)} \right) \\\\
 &\geq \mathbb{E}\_{q(x\_0, \cdots, x\_T)} \log \frac{p_{\theta} (x\_0, \cdots, x\_{T-1} \vert x_T) \cdot p_{\text{latent}(x\_T)}}{q(x\_1, \cdots, x\_T \vert x\_0)} := \text{ELBO}
 \end{align}
-$$
 <br>
 
 이 ELBO를 최대화하기 위해 최소화해야 하는 손실 함수는 더 전개되어 다음과 같이 KL 발산들의 조합으로 정리될 수 있습니다.
