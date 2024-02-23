@@ -130,9 +130,9 @@ $\small C(x\_t, x\_0)$는 $\small x\_{t-1}$을 포함하지 않는 상수항이�
 <br>
 \begin{align}
 \tilde{\beta}\_t
-&= 1 / ( \frac{\sqrt{\alpha\_t}}{\beta\_t}x\_t + \frac{\sqrt{\bar{\alpha}\_{t-1}}}{1 - \bar{\alpha}\_{t-1}} x\_0 ) \\\
+&= 1 / ( \frac{\sqrt{\alpha\_t}}{\beta\_t}x\_t + \frac{\sqrt{\bar{\alpha}\_{t-1}}}{1 - \bar{\alpha}\_{t-1}} x\_0 ) \\
 &= \frac{1 - \bar{\alpha}\_{t-1}}{1 - \bar{\alpha}\_t} \cdot \beta\_t \\\
-\\\
+\\\\
 \tilde{\mu}\_t (x\_t, x\_0)
 &= ( \frac{\sqrt{\alpha\_t}}{\beta\_t}x\_t + \frac{\sqrt{\bar{\alpha}\_{t-1}}}{1 - \bar{\alpha}\_{t-1}} x\_0 ) / ( \frac{\alpha\_t}{\beta\_t} + \frac{1}{1 - \bar{\alpha}\_{t-1}} ) \\\
 &= \frac{1}{\sqrt{\alpha\_t}} \Big( x\_t - \frac{1 - \alpha\_t}{\sqrt{1 - \bar{\alpha}\_t}} \epsilon \Big)
