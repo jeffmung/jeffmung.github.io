@@ -118,11 +118,13 @@ x\_t
 그리고 $\small q(x\_{t-1} \vert x\_t, x\_0)$를 Bayes 룰과 가우시안 분포의 정의를 이용하여 전개하면 다음과 같이 됩니다. 세부 과정은 생략합니다.
 
 <br>
-\displaylines{
+$$
+\begin{align}
 q(x\_{t-1} \vert x\_t, x\_0)
-&= q(x\_t \vert x\_{t-1}, x\_0) \frac{ q(x\_{t-1} \vert x\_0) }{ q(x\_t \vert x\_0) } \\\
+&= q(x\_t \vert x\_{t-1}, x\_0) \frac{ q(x\_{t-1} \vert x\_0) }{ q(x\_t \vert x\_0) } \\
 &\propto \exp\Big( -\frac{1}{2} \big( (\frac{\alpha\_t}{\beta\_t} + \frac{1}{1 - \bar{\alpha}\_{t-1}}) x\_{t-1}^2 - (\frac{2\sqrt{\alpha\_t}}{\beta\_t}x\_t + \frac{2\sqrt{\bar{\alpha}\_{t-1}}}{1 - \bar{\alpha}\_{t-1}} x\_0) x\_{t-1} + C(x\_t, x\_0) \big) \Big)
-}
+\end{align}
+$$
 <br>
 
 $\small C(x\_t, x\_0)$는 $\small x\_{t-1}$을 포함하지 않는 상수항이고 가우시안 분포의 정의에 의해 여기서 평균과 분산을 구할 수 있습니다.
