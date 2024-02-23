@@ -68,7 +68,7 @@ Diffusion 모델 학습의 손실 함수를 얻는 전체 과정의 전개와 �
 \begin{align}
 \mathbb{E}\_{q\_{\text{data}} (x\_0)} \log p\_{\theta}(x\_0)
 &= \mathbb{E}\_{q\_{\text{data}}(x\_0)} \log \int p\_{\theta} (x\_0, \cdots, x\_{T-1} \vert x\_T) \cdot p\_{\text{latent}} (x\_T) d x\_{1:T} \newline
-&= \mathbb{E}\_{q\_{\text{data}}(x\_0)} \log \left( \mathbb{E}\_{q(x\_{1:T} \vert x\_0)} \frac{p_{\theta} (x\_0, \cdots, x\_{T-1} \vert x_T) \cdot p_{\text{latent}(x\_T)}}{q(x\_1, \cdots, x\_T \vert x\_0)} \right) \\\\
+&= \mathbb{E}\_{q\_{\text{data}}(x\_0)} \log \left( \mathbb{E}\_{q(x\_{1:T} \vert x\_0)} \frac{p_{\theta} (x\_0, \cdots, x\_{T-1} \vert x_T) \cdot p_{\text{latent}(x\_T)}}{q(x\_1, \cdots, x\_T \vert x\_0)} \right) \newline
 &\geq \mathbb{E}\_{q(x\_0, \cdots, x\_T)} \log \frac{p_{\theta} (x\_0, \cdots, x\_{T-1} \vert x_T) \cdot p_{\text{latent}(x\_T)}}{q(x\_1, \cdots, x\_T \vert x\_0)} := \text{ELBO}
 \end{align}
 <br>
