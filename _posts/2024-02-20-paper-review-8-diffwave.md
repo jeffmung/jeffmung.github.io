@@ -76,13 +76,11 @@ Diffusion 모델 학습의 손실 함수를 얻는 전체 과정의 전개와 �
 이 ELBO를 최대화하기 위해 최소화해야 하는 손실 함수는 더 전개되어 다음과 같이 KL 발산들의 조합으로 정리될 수 있습니다.
 
 <br>
-$$
 \begin{align}
 \- \text{ELBO}
-&= \mathbb{E}\_{q(x\_0, \cdots, x\_T)} \log \frac{q(x\_1, \cdots, x\_T \vert x\_0)}{p_{\theta} (x\_0, \cdots, x\_{T-1} \vert x_T) \cdot p_{\text{latent}(x\_T)}} \\
+&= \mathbb{E}\_{q(x\_0, \cdots, x\_T)} \log \frac{q(x\_1, \cdots, x\_T \vert x\_0)}{p_{\theta} (x\_0, \cdots, x\_{T-1} \vert x_T) \cdot p_{\text{latent}(x\_T)}} \newline
 &= \mathbb{E}\_q \left[ \underbrace{D\_\text{KL}(q(x\_T \vert x\_0) \parallel p\_\theta(x\_T))}\_{L\_T} + \sum\_{t=2}^T \underbrace{D\_\text{KL}(q(x\_{t-1} \vert x\_t, x\_0) \parallel p\_\theta(x\_{t-1} \vert x\_t))}\_{L\_{t-1}} \underbrace{\- \log p\_\theta(x\_0 \vert x\_1)}\_{L\_0} \right]
 \end{align}
-$$
 <br>
 
 여기서 $\small L\_{T} $는 상수이고 $\small L\_0 $는 무시할 수 있을 정도로 영향력이 작기 때문에 결국 $\small L\_{T-1} + \cdots + L\_1$을 최소화시키는 문제가 됩니다. 다시 상기해보자면 학습시키는 대상은 역방향 과정의 확률 분포 $\small p\_{\theta}(x\_{t-1} \vert x\_t) = \mathcal{N}(x\_{t-1}; \mu\_{\theta}(x\_t, t), \sigma\_{\theta}(x\_x, t)^2 I)$를 추정하는 신경망입니다. 그리고 $\small q(x\_{t-1} \vert x\_t, x\_0) = \mathcal{N}(x\_{t-1}; \tilde{\mu}\_t(x\_t, x\_0), \tilde{\beta}\_t I)$라고 기호 $\small \tilde{\mu}\_t$와 $\small \tilde{\beta}\_t$를 새로 정의하겠습니다. 가우시안 분포 $\small p = \mathcal{N}(\mu\_1, \sigma\_1^2)$와 $\small q = \mathcal{N}(\mu\_2, \sigma\_2^2)$의 KL 발산은 다음과 같습니다.
@@ -104,17 +102,13 @@ L\_{t-1} = \mathbb{E}\_q \frac{\lVert \tilde{\mu}\_t(x\_t, x\_0) - \mu\_{\theta}
 $\small q(x\_{t-1} \vert x\_t, x\_0)$의 평균과 분산을 구하기 위해 먼저 $\small q(x\_t \vert x\_{t-1}) = \mathcal{N}(x\_t; \sqrt{1-\beta\_t}x\_{t-1}, \beta\_t I)$부터 다시 유도를 시작해보겠습니다. $\small \alpha_t = 1 - \beta_t$이고 $\small \bar{\alpha}\_t = \prod\_{s=1}^t \alpha\_s$라고 정의합니다. 재매개변수화 트릭(reparameterization trick)을 사용하면 $\small x\_t$는 다음과 같이 얻어집니다.
 
 <br>
-$$
-\begin{gather}
 \begin{align}
 x\_t
-&= \sqrt{\alpha_t} x\_{t-1} + \sqrt{1 - \alpha\_t} \epsilon\_{t-1} \\
-&= \sqrt{\alpha\_t \alpha\_{t-1}}x\_{t-2} + \sqrt{1 - \alpha\_t \alpha\_{t-1}} \bar{\epsilon}\_{t-2} \\
-&= \cdots \\\
+&= \sqrt{\alpha_t} x\_{t-1} + \sqrt{1 - \alpha\_t} \epsilon\_{t-1} \newline
+&= \sqrt{\alpha\_t \alpha\_{t-1}}x\_{t-2} + \sqrt{1 - \alpha\_t \alpha\_{t-1}} \bar{\epsilon}\_{t-2} \newline
+&= \cdots \newline
 &= \sqrt{\bar{\alpha}\_t}x\_0 + \sqrt{1 - \bar{\alpha}\_t}\epsilon
 \end{align}
-\end{gather}
-$$
 <br>
 
 이때 $\small \epsilon\_{t-1}, \epsilon\_{t-2},\cdots \sim \mathcal{N}(0, I)$이고 $\small \bar{\epsilon}\_{t-2}$는 가우시안 분포의 성질에 따라 $\small \epsilon\_{t-1}$과 $\small \epsilon\_{t-2}$를 하나로 합친 것입니다. $\small \epsilon$은 그렇게 계속 합쳐진 $\small \bar{\epsilon}\_0$에 해당합니다. 결과적으로 $\small q(x\_t \vert x\_{t-1}) = \mathcal{N}(x\_t; \sqrt{\bar{\alpha}\_t}x\_0, (1-\bar{\alpha}\_t) I)$가 됩니다.
@@ -122,52 +116,44 @@ $$
 그리고 $\small q(x\_{t-1} \vert x\_t, x\_0)$를 Bayes 룰과 가우시안 분포의 정의를 이용하여 전개하면 다음과 같이 됩니다. 세부 과정은 생략합니다.
 
 <br>
-$$
 \begin{align}
 q(x\_{t-1} \vert x\_t, x\_0)
-&= q(x\_t \vert x\_{t-1}, x\_0) \frac{ q(x\_{t-1} \vert x\_0) }{ q(x\_t \vert x\_0) } \\
+&= q(x\_t \vert x\_{t-1}, x\_0) \frac{ q(x\_{t-1} \vert x\_0) }{ q(x\_t \vert x\_0) } \newline
 &\propto \exp\Big( -\frac{1}{2} \big( (\frac{\alpha\_t}{\beta\_t} + \frac{1}{1 - \bar{\alpha}\_{t-1}}) x\_{t-1}^2 - (\frac{2\sqrt{\alpha\_t}}{\beta\_t}x\_t + \frac{2\sqrt{\bar{\alpha}\_{t-1}}}{1 - \bar{\alpha}\_{t-1}} x\_0) x\_{t-1} + C(x\_t, x\_0) \big) \Big)
 \end{align}
-$$
 <br>
 
 $\small C(x\_t, x\_0)$는 $\small x\_{t-1}$을 포함하지 않는 상수항이고 가우시안 분포의 정의에 의해 여기서 평균과 분산을 구할 수 있습니다.
 
 <br>
-$$
 \begin{eqnarray}
 \tilde{\beta}\_t
-&= 1 / ( \frac{\sqrt{\alpha\_t}}{\beta\_t}x\_t + \frac{\sqrt{\bar{\alpha}\_{t-1}}}{1 - \bar{\alpha}\_{t-1}} x\_0 ) \\
-&= \frac{1 - \bar{\alpha}\_{t-1}}{1 - \bar{\alpha}\_t} \cdot \beta\_t \\
-\\
+&= 1 / ( \frac{\sqrt{\alpha\_t}}{\beta\_t}x\_t + \frac{\sqrt{\bar{\alpha}\_{t-1}}}{1 - \bar{\alpha}\_{t-1}} x\_0 ) \newline
+&= \frac{1 - \bar{\alpha}\_{t-1}}{1 - \bar{\alpha}\_t} \cdot \beta\_t \newline
+\newline
 \tilde{\mu}\_t (x\_t, x\_0)
-&= ( \frac{\sqrt{\alpha\_t}}{\beta\_t}x\_t + \frac{\sqrt{\bar{\alpha}\_{t-1}}}{1 - \bar{\alpha}\_{t-1}} x\_0 ) / ( \frac{\alpha\_t}{\beta\_t} + \frac{1}{1 - \bar{\alpha}\_{t-1}} ) \\
+&= ( \frac{\sqrt{\alpha\_t}}{\beta\_t}x\_t + \frac{\sqrt{\bar{\alpha}\_{t-1}}}{1 - \bar{\alpha}\_{t-1}} x\_0 ) / ( \frac{\alpha\_t}{\beta\_t} + \frac{1}{1 - \bar{\alpha}\_{t-1}} ) \newline
 &= \frac{1}{\sqrt{\alpha\_t}} \Big( x\_t - \frac{1 - \alpha\_t}{\sqrt{1 - \bar{\alpha}\_t}} \epsilon \Big)
 \end{eqnarray}
-$$
 <br>
 
 중간 과정으로 위해서 구한 $\small x\_t = \sqrt{\bar{\alpha}\_t}x\_0 + \sqrt{1 - \bar{\alpha}\_t}\epsilon$ 식에 의해 $\small x\_0$를 대입하고 정리한 과정이 생략되어 있습니다. 이제 $\small p\_{\theta}(x\_{t-1} \vert x\_t)$의 평균 $\small \mu\_{\theta}$를 다음과 같이 매개변수화 되도록 설정하면 손실 함수를 더 간단하게 만들 수 있습니다.
 
 <br>
-$$
 \begin{align}
 \mu\_{\theta} (x\_t, t) = \frac{1}{\sqrt{\alpha\_t}} \Big( x\_t - \frac{1 - \alpha\_t}{\sqrt{1 - \bar{\alpha}\_t}} \epsilon\_{\theta}(x\_t, t) \Big)
 \end{align}
-$$
 <br>
 
 $\small \epsilon\_{\theta}(x\_t, t) : \mathbb{R}^L \times \mathbb{N} \rightarrow \mathbb{R}^L$는 $\small x\_t$와 확산 스텝 $\small t$를 입력으로 받는 신경망입니다. 앞서 말했던 것과 같이 표준편차는 $\small \sigma\_{\theta}(x\_t, t) = \tilde{\beta}\_t^{\frac{1}{2}}$의 고정된 값으로 정의합니다. 손실 함수 $\small L\_{t-1}$을 정리해보겠습니다.
 
 <br>
-$$
 \begin{align}
 \small L\_{t-1}
-&= \mathbb{E}\_{x\_0, \epsilon} \frac{1}{2 \tilde{\beta}\_t} \lVert \frac{1}{\sqrt{\alpha\_t}} \Big( x\_t - \frac{1 - \alpha\_t}{\sqrt{1 - \bar{\alpha}\_t}} \epsilon \Big) - \frac{1}{\sqrt{\alpha\_t}} \Big( x\_t - \frac{1 - \alpha\_t}{\sqrt{1 - \bar{\alpha}\_t}} \epsilon\_{\theta}(x\_t, t) \Big) \rVert\_2^2 \\
-\\
+&= \mathbb{E}\_{x\_0, \epsilon} \frac{1}{2 \tilde{\beta}\_t} \lVert \frac{1}{\sqrt{\alpha\_t}} \Big( x\_t - \frac{1 - \alpha\_t}{\sqrt{1 - \bar{\alpha}\_t}} \epsilon \Big) - \frac{1}{\sqrt{\alpha\_t}} \Big( x\_t - \frac{1 - \alpha\_t}{\sqrt{1 - \bar{\alpha}\_t}} \epsilon\_{\theta}(x\_t, t) \Big) \rVert\_2^2 \newline
+\newline
 &= \kappa\_t \mathbb{E}\_{x\_0, \epsilon} \lVert \epsilon - \epsilon\_{\theta} (\sqrt{\bar{\alpha}\_t}x\_0 + \sqrt{1 - \bar{\alpha}\_t}\epsilon, t) \rVert\_2^2
 \end{align}
-$$
 <br>
 
 $\small \kappa\_t=\frac{\beta\_t}{2\alpha\_t (1-\bar{\alpha}\_{t-1})}$는 계수를 정리한 것입니다. 이 계수도 $\small t$에 의해 달라지는 일종의 가중치이지만 실험적으로 다음과 같은 가중치 없는 손실 함수가 더 좋은 학습 성능을 보여준다는 것을 DDPM (Denoising Diffusion Probabilistic Models) [(Ho et al., 2020)](https://arxiv.org/abs/2006.11239) 논문에서 제안했습니다.
@@ -207,13 +193,11 @@ t\_s^{\text{align}} = t + \frac{\sqrt{\bar{\alpha}\_t} - \sqrt{\bar{\gamma}\_s}}
 $\small t\_s^{\text{align}}$는 정수가 아닌 소수가 될 수 있습니다. 최종적으로 $\small \mu\_{\theta}$와 $\small \sigma\_{\theta}$는 다음과 같이 얻어집니다.
 
 <br>
-$$
 \begin{align}
-\mu\_{\theta}^{\text{fast}} (x\_s, s) &= \frac{1}{\sqrt{\gamma\_s}} \Big( x\_s - \frac{1 - \eta\_s}{\sqrt{1 - \bar{\gamma}\_s}} \epsilon\_{\theta}(x\_s, t\_s^{\text{align}}) \Big) \\
-\\
+\mu\_{\theta}^{\text{fast}} (x\_s, s) &= \frac{1}{\sqrt{\gamma\_s}} \Big( x\_s - \frac{1 - \eta\_s}{\sqrt{1 - \bar{\gamma}\_s}} \epsilon\_{\theta}(x\_s, t\_s^{\text{align}}) \Big) \newline
+\newline
 \sigma\_{\theta}^{\text{fast}} (x\_s, s) &= \tilde{\eta}\_s^{\frac{1}{2}}
 \end{align}
-$$
 <br>
 
 빠른 샘플링 알고리즘은 아래에 요약되어 있습니다.
