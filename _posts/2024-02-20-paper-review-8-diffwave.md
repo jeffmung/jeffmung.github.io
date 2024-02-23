@@ -65,24 +65,26 @@ Diffusion 모델 학습의 손실 함수를 얻는 전체 과정의 전개와 �
 모델의 목표는 우도(likelihood) $\small p_{\theta} (x_0)$를 최대화하는 것인데 이것은 추정하기 어려운(intractable) 확률분포입니다. 하지만 이러한 형태의 식은 변분 추론(variational inference)에 의해 다음과 같이 ELBO로 전개되고 모델은 ELBO를 최대화하는 것으로 학습될 수 있습니다.
 
 <br>
-
+$$
 \begin{align}
 \mathbb{E}\_{q\_{\text{data}} (x\_0)} \log p\_{\theta}(x\_0)
-&= \mathbb{E}\_{q\_{\text{data}}(x\_0)} \log \int p\_{\theta} (x\_0, \cdots, x\_{T-1} \vert x\_T) \cdot p\_{\text{latent}} (x\_T) d x\_{1:T} \\\
-&= \mathbb{E}\_{q\_{\text{data}}(x\_0)} \log \left( \mathbb{E}\_{q(x\_{1:T} \vert x\_0)} \frac{p_{\theta} (x\_0, \cdots, x\_{T-1} \vert x_T) \cdot p_{\text{latent}(x\_T)}}{q(x\_1, \cdots, x\_T \vert x\_0)} \right) \\\
+&= \mathbb{E}\_{q\_{\text{data}}(x\_0)} \log \int p\_{\theta} (x\_0, \cdots, x\_{T-1} \vert x\_T) \cdot p\_{\text{latent}} (x\_T) d x\_{1:T} \\
+&= \mathbb{E}\_{q\_{\text{data}}(x\_0)} \log \left( \mathbb{E}\_{q(x\_{1:T} \vert x\_0)} \frac{p_{\theta} (x\_0, \cdots, x\_{T-1} \vert x_T) \cdot p_{\text{latent}(x\_T)}}{q(x\_1, \cdots, x\_T \vert x\_0)} \right) \\
 &\geq \mathbb{E}\_{q(x\_0, \cdots, x\_T)} \log \frac{p_{\theta} (x\_0, \cdots, x\_{T-1} \vert x_T) \cdot p_{\text{latent}(x\_T)}}{q(x\_1, \cdots, x\_T \vert x\_0)} := \text{ELBO}
 \end{align}
-
+$$
 <br>
 
 이 ELBO를 최대화하기 위해 최소화해야 하는 손실 함수는 더 전개되어 다음과 같이 KL 발산들의 조합으로 정리될 수 있습니다.
 
 <br>
+$$
 \begin{align}
 \- \text{ELBO}
-&= \mathbb{E}\_{q(x\_0, \cdots, x\_T)} \log \frac{q(x\_1, \cdots, x\_T \vert x\_0)}{p_{\theta} (x\_0, \cdots, x\_{T-1} \vert x_T) \cdot p_{\text{latent}(x\_T)}} \\\
+&= \mathbb{E}\_{q(x\_0, \cdots, x\_T)} \log \frac{q(x\_1, \cdots, x\_T \vert x\_0)}{p_{\theta} (x\_0, \cdots, x\_{T-1} \vert x_T) \cdot p_{\text{latent}(x\_T)}} \\
 &= \mathbb{E}\_q \left[ \underbrace{D\_\text{KL}(q(x\_T \vert x\_0) \parallel p\_\theta(x\_T))}\_{L\_T} + \sum\_{t=2}^T \underbrace{D\_\text{KL}(q(x\_{t-1} \vert x\_t, x\_0) \parallel p\_\theta(x\_{t-1} \vert x\_t))}\_{L\_{t-1}} \underbrace{\- \log p\_\theta(x\_0 \vert x\_1)}\_{L\_0} \right]
 \end{align}
+$$
 <br>
 
 여기서 $\small L\_{T} $는 상수이고 $\small L\_0 $는 무시할 수 있을 정도로 영향력이 작기 때문에 결국 $\small L\_{T-1} + \cdots + L\_1$을 최소화시키는 문제가 됩니다. 다시 상기해보자면 학습시키는 대상은 역방향 과정의 확률 분포 $\small p\_{\theta}(x\_{t-1} \vert x\_t) = \mathcal{N}(x\_{t-1}; \mu\_{\theta}(x\_t, t), \sigma\_{\theta}(x\_x, t)^2 I)$를 추정하는 신경망입니다. 그리고 $\small q(x\_{t-1} \vert x\_t, x\_0) = \mathcal{N}(x\_{t-1}; \tilde{\mu}\_t(x\_t, x\_0), \tilde{\beta}\_t I)$라고 기호 $\small \tilde{\mu}\_t$와 $\small \tilde{\beta}\_t$를 새로 정의하겠습니다. 가우시안 분포 $\small p = \mathcal{N}(\mu\_1, \sigma\_1^2)$와 $\small q = \mathcal{N}(\mu\_2, \sigma\_2^2)$의 KL 발산은 다음과 같습니다.
@@ -105,6 +107,7 @@ $\small q(x\_{t-1} \vert x\_t, x\_0)$의 평균과 분산을 구하기 위해 �
 
 <br>
 $$
+\begin{gather}
 \begin{align}
 x\_t
 &= \sqrt{\alpha_t} x\_{t-1} + \sqrt{1 - \alpha\_t} \epsilon\_{t-1} \\
@@ -112,6 +115,7 @@ x\_t
 &= \cdots \\\
 &= \sqrt{\bar{\alpha}\_t}x\_0 + \sqrt{1 - \bar{\alpha}\_t}\epsilon
 \end{align}
+\end{gather}
 $$
 <br>
 
