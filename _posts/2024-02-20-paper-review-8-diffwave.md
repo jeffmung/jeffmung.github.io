@@ -128,7 +128,7 @@ q(x\_{t-1} \vert x\_t, x\_0)
 $\small C(x\_t, x\_0)$는 $\small x\_{t-1}$을 포함하지 않는 상수항이고 가우시안 분포의 정의에 의해 여기서 평균과 분산을 구할 수 있습니다.
 
 <br>
-\begin{align}
+\begin{eqnarray}
 \tilde{\beta}\_t
 &= 1 / ( \frac{\sqrt{\alpha\_t}}{\beta\_t}x\_t + \frac{\sqrt{\bar{\alpha}\_{t-1}}}{1 - \bar{\alpha}\_{t-1}} x\_0 ) \\
 &= \frac{1 - \bar{\alpha}\_{t-1}}{1 - \bar{\alpha}\_t} \cdot \beta\_t \\\
@@ -136,7 +136,7 @@ $\small C(x\_t, x\_0)$는 $\small x\_{t-1}$을 포함하지 않는 상수항이�
 \tilde{\mu}\_t (x\_t, x\_0)
 &= ( \frac{\sqrt{\alpha\_t}}{\beta\_t}x\_t + \frac{\sqrt{\bar{\alpha}\_{t-1}}}{1 - \bar{\alpha}\_{t-1}} x\_0 ) / ( \frac{\alpha\_t}{\beta\_t} + \frac{1}{1 - \bar{\alpha}\_{t-1}} ) \\\
 &= \frac{1}{\sqrt{\alpha\_t}} \Big( x\_t - \frac{1 - \alpha\_t}{\sqrt{1 - \bar{\alpha}\_t}} \epsilon \Big)
-\end{align}
+\end{eqnarray}
 <br>
 
 중간 과정으로 위해서 구한 $\small x\_t = \sqrt{\bar{\alpha}\_t}x\_0 + \sqrt{1 - \bar{\alpha}\_t}\epsilon$ 식에 의해 $\small x\_0$를 대입하고 정리한 과정이 생략되어 있습니다. 이제 $\small p\_{\theta}(x\_{t-1} \vert x\_t)$의 평균 $\small \mu\_{\theta}$를 다음과 같이 매개변수화 되도록 설정하면 손실 함수를 더 간단하게 만들 수 있습니다.
