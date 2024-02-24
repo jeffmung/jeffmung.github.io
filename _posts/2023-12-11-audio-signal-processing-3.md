@@ -4,7 +4,7 @@ title: "[오디오 신호 처리] 3. 오디오 특징의 종류 (Types of Audio 
 image: https://i.ibb.co/YQgkh1n/audio-features-thumbnail.png
 date: 2023-12-11
 tags: 
-categories: Audio-Signal-Processing
+categories: audio-signal-processing
 use_math: true
 ---
 

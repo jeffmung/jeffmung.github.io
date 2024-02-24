@@ -4,7 +4,7 @@ title: "[오디오 신호 처리] 7. Short-Time Fourier Transform (STFT)"
 image: https://i.ibb.co/YL87bBG/thumbnail.png
 date: 2023-12-29
 tags: 
-categories: Audio-Signal-Processing
+categories: audio-signal-processing
 use_math: true
 ---
 

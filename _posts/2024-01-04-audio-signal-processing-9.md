@@ -4,7 +4,7 @@ title: "[오디오 신호 처리] 9. Mel-Frequency Cepstral Coefficients (MFCC)"
 image: https://i.ibb.co/9tk7R1M/thumbnail.png
 date: 2024-01-04
 tags: 
-categories: Audio-Signal-Processing
+categories: audio-signal-processing
 use_math: true
 ---
 

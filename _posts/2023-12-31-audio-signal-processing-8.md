@@ -4,7 +4,7 @@ title: "[오디오 신호 처리] 8. Mel Spectrogram"
 image: https://i.ibb.co/py3QyVk/thumbnail.png
 date: 2023-12-29
 tags: 
-categories: Audio-Signal-Processing
+categories: audio-signal-processing
 use_math: true
 ---
 

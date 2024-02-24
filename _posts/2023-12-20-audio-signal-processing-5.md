@@ -4,7 +4,7 @@ title: "[오디오 신호 처리] 5. Time Domain Audio Features - AE, RMSE, ZCR"
 image: https://i.ibb.co/Drr8pwr/thumbnail.png
 date: 2023-12-20
 tags: 
-categories: Audio-Signal-Processing
+categories: audio-signal-processing
 use_math: true
 ---
 

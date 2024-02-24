@@ -4,7 +4,7 @@ title: "[오디오 신호 처리] 2. 오디오 신호의 이해 - 아날로그/�
 image: https://i.ibb.co/mzGjQ6n/audio-signal.png
 date: 2023-12-08
 tags: 
-categories: Audio-Signal-Processing
+categories: audio-signal-processing
 use_math: true
 ---
 

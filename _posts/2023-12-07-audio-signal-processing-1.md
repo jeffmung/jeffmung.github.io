@@ -4,7 +4,7 @@ title: "[오디오 신호 처리] 1. 소리의 구성 요소"
 image: "https://i.ibb.co/Q61k2dd/thumbnail.png"
 date: 2023-12-07
 tags:
-categories: Audio-Signal-Processing
+categories: audio-signal-processing
 use_math: true
 ---
 

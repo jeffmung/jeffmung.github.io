@@ -4,7 +4,7 @@ title: "[오디오 신호 처리] 10. Band Energy Ratio, Spectral Centroid, Spec
 image: https://i.ibb.co/80vfyzS/thumbnail.png
 date: 2024-01-09
 tags: 
-categories: Audio-Signal-Processing
+categories: audio-signal-processing
 use_math: true
 ---
 

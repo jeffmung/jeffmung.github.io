@@ -4,7 +4,7 @@ title: "[오디오 신호 처리] 6. 푸리에 변환 (Fourier Transform)"
 image: https://i.ibb.co/gwDVvF4/thumbnail.png
 date: 2023-12-26
 tags: 
-categories: Audio-Signal-Processing
+categories: audio-signal-processing
 use_math: true
 ---
 

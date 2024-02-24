@@ -4,7 +4,7 @@ title: "[오디오 신호 처리] 4. 오디오 특징의 추출 (Audio Features 
 image: https://i.ibb.co/P58fq4K/thumbnail.png
 date: 2023-12-12
 tags: 
-categories: Audio-Signal-Processing
+categories: audio-signal-processing
 use_math: true
 ---
 
