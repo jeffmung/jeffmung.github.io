@@ -68,6 +68,30 @@ $(document).ready(function () {
     });
   }
 
+  $(".c-load-more-cat").click(loadMorePostsCat);
+
+  function loadMorePostsCat() {
+    var _this = this;
+    var $postsContainer = $('.c-posts-cat');
+    var nextPage = parseInt($postsContainer.attr('data-page')) + 1;
+    var totalPages = parseInt($postsContainer.attr('data-totalPages'));
+
+    $(this).addClass('is-loading').text("Loading...");
+
+    $.get('/page-cat/' + nextPage, function (data) {
+      var htmlData = $.parseHTML(data);
+      var $articles = $(htmlData).find('article');
+
+      $postsContainer.attr('data-page', nextPage).append($articles);
+
+      if ($postsContainer.attr('data-totalPages') == nextPage) {
+        $('.c-load-more-cat').remove();
+      }
+
+      $(_this).removeClass('is-loading');
+    });
+  }
+
   /* ==============================
   // Smooth scroll to the tags page
   ============================== */

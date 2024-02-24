@@ -15,9 +15,9 @@ permalink: /category/paper-review/
 {% include header.html %}
 {% include category-list.html %}
 
-{% assign postCount = site.categories[page.title] | size %}
+{% assign postCount = site.posts | size %}
 {% assign postsCovered = site.paginate | plus:offset %}
 {% if postsCovered < postCount %}
-  <button class="c-load-more c-btn c-btn--middle">Load more posts</button>
+  <button class="c-load-more-cat c-btn c-btn--middle">Load more posts</button>
 {% endif %}
 {% include categories.html %}

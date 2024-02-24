@@ -1,4 +1,4 @@
-<div class="c-posts o-opacity"  data-page="{{ currentPage }}" data-totalPages="{{ paginator.total_pages }}">
+<div class="c-posts-cat o-opacity"  data-page="{{ currentPage }}" data-totalPages="{{ paginator.total_pages }}">
     {% for post in site.categories[page.title] limit:site.paginate offset:offset %}
     <article class="c-post">
       {% if post.image %}
@@ -14,6 +14,6 @@
       <span class="c-post-words">{% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words |
           plus: 250 | divided_by: 250 | append: " minute read" }}{% endunless %}</span>
       </div>
-    </article> <!-- /.c-post -->
+    </article> <!-- /.c-post-cat -->
     {% endfor %}
-</div> <!-- /.c-posts -->
+</div> <!-- /.c-posts-cat -->
