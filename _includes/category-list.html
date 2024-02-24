@@ -1,5 +1,13 @@
+{% if paginator.page %}
+  {% assign offset = paginator.page | minus:1 | times:paginator.per_page %}
+  {% assign currentPage = paginator.page %}
+{% else %}
+  {% assign offset = 0 %}
+  {% assign currentPage = 1 %}
+{% endif %}
+
 <div class="c-posts o-opacity">
-    {% for post in site.categories[page.title] %}
+    {% for post in site.categories[page.title] limit:site.paginate offset:offset %}
     <article class="c-post">
       {% if post.image %}
       <a class="c-post-thumbnail o-opacity" style="background-image: url('{{ site.baseurl }}{{ post.image }}')"
