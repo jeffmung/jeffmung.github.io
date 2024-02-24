@@ -11,7 +11,7 @@ use_math: true
 <br><br>
 
 ## 논문 개요
-
+<!-- excerpt-start -->
 2014년 GAN이 발표된 이후 이미지 생성에 이를 활용하는 많은 연구들이 진행되었지만 오디오 분야에서는 이 논문 이전까지 GAN을 효과적으로 적용한 연구가 거의 없었습니다. 이 논문에서는 이미지 분야에서 업샘플링을 이용하여 성공적인 결과를 보여준 DCGAN을 [(Redford et al., 2016)](https://arxiv.org/abs/1511.06434) 기반으로 하여 수 초 짜리 짧은 소리를 생성하는 두 가지 모델 WaveGAN과 SpecGAN을 제안합니다. WaveGAN은 시간 도메인에서 오디오 파형을 생성하는 방식이고, SpecGAN은 주파수 도메인에서 스펙트로그램을 이미지로 생성한 뒤 Griffin-Lim 알고리즘으로 대응하는 오디오 신호를 복원하는 방식입니다.
 
 이러한 GAN 기반 모델은 WaveNET과 [(van den Oord et al., 2016)](https://arxiv.org/abs/1609.03499) SampleRNN [(Soroush Mehri et al., 2016)](https://openreview.net/forum?id=SkxKPDv5xl) 같은 자기회귀적(autoregressive) 방식의 모델들과 비교하여 속도가 빠르고 적은 양의 데이터로도 상대적으로 좋은 품질의 오디오를 생성할 수 있다는 장점을 보여줍니다. 하지만 긴 음악 생성이나 TTS 등의 태스크에서도 확실한 우위를 보이는 것은 아니기 때문에 WaveGAN 논문도 주로 드럼이나 새 소리 같은 짧은 사운드 이펙트 생성에 대한 실용적인 활용도나 비지도 학습인 GAN을 처음으로 적용한 구조를 설계했다는 점에 초점을 맞추고 있습니다.

@@ -11,7 +11,7 @@ use_math: true
 <br><br>
 
 ## 논문 개요
-
+<!-- excerpt-start -->
 SING은 Facebook AI Research에서 개발한 음향 합성 모델로 2018년 NeurIPS에 발표되었습니다. 이 모델은 악기, 음높이(pitch), 속도(velocity)가 레이블로 주어진 데이터셋에 대해 학습한 뒤 주어진 조건에 해당하는 악기 소리를 생성합니다.
 
 이전의 대표적인 음악 생성 모델인 WaveNet과 [(van den Oord et al., 2016)](https://arxiv.org/abs/1609.03499) SampleRNN은 [(Soroush Mehri et al., 2016)](https://openreview.net/forum?id=SkxKPDv5xl) 자기회귀적(autoregressive) 방식을 취하기 때문에 학습과 생성 속도가 느린 단점이 있습니다. 또한 오디오 샘플을 카테고리형 분포로 다루기 때문에 현실적으로 연산이 가능하려면 정보의 손실을 감수하더라도 16 bit 샘플을 256개 카테고리의 8 bit로 만드는 것과 같은 압축이 필요합니다.

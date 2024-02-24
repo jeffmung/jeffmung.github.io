@@ -11,9 +11,9 @@ use_math: true
 <br><br>
 
 ## Band Energy Ratio
-
+<!-- excerpt-start -->
 Band energy ratio는 두 주파수 대역의 에너지 비율을 나타내는 개념으로, 일반적으로 낮은 주파수의 에너지가 얼마나 우세한지를 측정하는 척도입니다. 다음과 같은 공식으로 계산됩니다.
-
+<!-- excerpt-start -->
 <br>
 <center> $ BER_{t} = \frac{\sum^{F - 1}_{n=1} m_{t}(n)^2}{\sum^{N}_{n=F} m_{t}(n)^2} $ </center>
 <br>

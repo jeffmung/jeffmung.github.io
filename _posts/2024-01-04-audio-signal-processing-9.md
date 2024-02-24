@@ -11,7 +11,7 @@ use_math: true
 <br><br>
 
 ## Cepstrum
-
+<!-- excerpt-start -->
 MFCC를 이해하기 위해서는 먼저 cepstrum의 개념에 대해 알아야 됩니다. Cepstrum이라는 단어의 어원은 spectrum의 'spec'을 거꾸로 해서 'ceps'로 만든 것으로 1963년 B. P. Bogert, M. J. Healy, J. W. Tukey의 논문에서 지진의 반사 신호 등에 대한 분석을 위해 처음 제시되었습니다. 단어에서 볼 수 있듯이 cepstrum은 spectrum과 연관이 있는데, 일종의 spectrum의 spectrum과 같은 의미입니다. Cepstrum의 수학적 정의는 다음과 같습니다.
 
 <br>

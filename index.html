@@ -22,8 +22,7 @@ layout: home
       <h2 class="c-post-title">
         <a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a>
       </h2>
-      <!-- <p>{{ post.content | strip_html | truncatewords: 15 }}</p> -->
-      {% assign excerptParts = post.excerpt | split: "<!-- excerpt-start -->" %}
+      {% assign excerptParts = post.content | split: "<!-- excerpt-start -->" %}
       <p>{{ excerptParts[1] | strip_html | strip_newlines | truncatewords: 20 }}</p>
       <span class="c-post-date">{{post.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;—&nbsp;</span>
       <span class="c-post-words">{% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words |

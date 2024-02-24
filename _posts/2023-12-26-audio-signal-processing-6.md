@@ -11,7 +11,7 @@ use_math: true
 <br><br>
 
 ## 직관적으로 Fourier Transform 이해하기
-
+<!-- excerpt-start -->
 주기성을 갖는 신호는 서로 다른 주파수를 갖는 사인파들의 조합으로 이루어져 있습니다. 이러한 사인파 성분들은 각각 크기(magnitude)와 위상(phase)을 가지고 신호를 구성합니다. 먼저 예시를 통해 살펴보겠습니다. 아래 그림은 피아노의 도(C) 음 소리에 대한 파형입니다.
 
 <p align="center">

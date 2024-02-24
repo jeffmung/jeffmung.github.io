@@ -11,7 +11,7 @@ use_math: true
 <br><br>
 
 ## 논문 개요
-
+<!-- excerpt-start -->
 WaveNet은 2016년 구글 딥마인드에서 발표한 오디오 생성 모델입니다. 이 논문의 1저자인 Aaron van den Oord는 이전에 이미지를 생성하기 위한 모델인 PixelRNN과 ([van den Oord et. al., 2016](https://arxiv.org/abs/1601.06759)) PixelCNN을 ([van den Oord et. al., 2016](https://proceedings.neurips.cc/paper_files/paper/2016/hash/b1301141feffabac455e1f90a7de2054-Abstract.html)) 발표하였는데 PixelCNN에서 사용한 dilated causal CNN의 개념을 오디오에도 마찬가지로 적용하여 좋은 결과를 얻어냈습니다.
 
 WaveNet은 text-to-speech(TTS)에 사용되어 텍스트를 음성으로 변환할 수도 있고, 발화자에 대해 조건을 두어 하나의 모델로 여러 목소리를 생성할 수도 있습니다. 또한 음악 데이터로 WaveNet을 학습시켜 음악을 생성하는 것도 가능합니다.

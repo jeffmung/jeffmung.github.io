@@ -11,7 +11,7 @@ use_math: true
 <br><br>
 
 ## Time Domain Feature Pipeline
-
+<!-- excerpt-start -->
 오디오 신호를 다룰 때 time domain feature를 추출하는 기본적인 파이프라인을 살펴보겠습니다. 먼저 소리에 대한 아날로그 신호에 아날로그-디지털 변환(analogue to digital conversion, ADC)을 적용하여 디지털 신호를 얻습니다. 다음으로는 프레임(frame)을 만드는 작업이 필요합니다. 프레임은 연속적인 샘플들을 일정한 개수만큼 연결해놓은 작은 조각입니다.
 
 ### Frame

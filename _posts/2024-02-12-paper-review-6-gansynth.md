@@ -11,7 +11,7 @@ use_math: true
 <br><br>
 
 ## 논문 개요
-
+<!-- excerpt-start -->
 GANSynth는 구글 AI가 개발한 음악 생성 모델입니다. PGGAN을 [(Tero Karras et al., 2018)](https://arxiv.org/abs/1710.10196) 기반으로 하여 스펙트로그램을 생성하는데, 크기(magnitude) 뿐만 아니라 프레임마다 틀어진 위상(phase) 정렬을 반영할 수 있는 instantaneous frequency를 포함한다는 것이 주요한 아이디어입니다.
 
 이 논문은 NSynth 데이터셋의 [(Jesse Engel et al., 2017)](https://proceedings.mlr.press/v70/engel17a.html) 학습에 초점을 맞추고 있습니다. 악기, 음높이(pitch), 속도(velocity)에 따라 구분된 오디오 데이터를 학습하여 일정한 음높이의 수 초 짜리 짧은 소리를 생성하는 태스크에 대해 기존 모델들에 비해 향상된 성능을 보여줍니다.

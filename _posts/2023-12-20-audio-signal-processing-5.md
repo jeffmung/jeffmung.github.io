@@ -11,9 +11,9 @@ use_math: true
 <br><br>
 
 ## Amplitude Envelope (AE)
-
+<!-- excerpt-start -->
 프레임 단위로 amplitude envelope를 구할 때에는 각각의 프레임 내에 있는 샘플들의 amplitude들 중 최대값을 취합니다. 따라서 프레임 t에서의 amplitude envelope 값은 다음의 식으로 나타납니다.
-
+<!-- excerpt-start -->
 <br>
 <center> $AE_{t} = \max_{k = t \cdot K}^{(t+1) \cdot K - 1} s(k)$ </center>
 <br>

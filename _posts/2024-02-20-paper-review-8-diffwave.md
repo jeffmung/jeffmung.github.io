@@ -11,7 +11,7 @@ use_math: true
 <br><br>
 
 ## 논문 개요
-
+<!-- excerpt-start -->
 DiffWave는 오디오 합성 분야에 diffusion을 적용한 가장 초기 모델들 중 하나입니다. WaveNet [(Aaron van den Oord et al., 2016)](http://arxiv.org/abs/1609.03499) 구조와 diffusion 모델을 혼합한 방법으로 기존 연구되었던 모델들에 비해 좋은 성능을 보여주면서 작은 모델 크기와 빠른 속도라는 이점을 가지고 있습니다.
 
 기존 WaveNet이나 diffusion 모델과 차별화되는 특징으로는 bidirectional dilated convolution을 사용한다는 것과 생성 시에는 빠른 샘플링을 위해 분산을 적절하게 스케쥴링하여 학습에 사용한 diffusion 스텝보다 훨씬 더 적은 스텝으로 역방향 과정(reverse process)을 진행하는 알고리즘을 사용한다는 것이 있습니다.

@@ -11,7 +11,7 @@ use_math: true
 <br><br>
 
 ## Short-Time Fourier Transform(STFT)의 필요성
-
+<!-- excerpt-start -->
 시간 도메인의 신호에 discrete Fourier transform을 적용하면 전체 신호에 대한 주파수 특성을 알 수 있지만 여기에는 시간에 대한 정보가 전혀 포함되어 있지 않습니다. 음악, 음성 등 실제 신호는 시간에 따라 다양하게 변하기 때문에 주파수 성분의 시간적인 변화를 파악하는 것이 중요합니다. 이를 위해 수행하는 것이 short-time Fourier transform(STFT)입니다.
 
 <br><br>
