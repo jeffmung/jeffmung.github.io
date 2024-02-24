@@ -4,7 +4,7 @@ title: "[논문 리뷰] SING: Symbol-to-Instrument Neural Generator"
 image: https://i.ibb.co/5G78rC0/thumbnail.png
 date: 2024-02-03
 tags: 
-categories: Paper-Review
+categories: paper-review
 use_math: true
 ---
 

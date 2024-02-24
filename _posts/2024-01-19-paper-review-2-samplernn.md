@@ -4,7 +4,7 @@ title: "[논문 리뷰] SampleRNN: An Unconditional End-to-End Neural Audio Gene
 image: https://i.ibb.co/cw9zNGn/thumbnail.png
 date: 2024-01-19
 tags: 
-categories: Paper-Review
+categories: paper-review
 use_math: true
 ---
 

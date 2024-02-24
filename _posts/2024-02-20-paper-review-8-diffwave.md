@@ -4,7 +4,7 @@ title: "[논문 리뷰] DiffWave: A Versatile Diffusion Model for Audio Synthesi
 image: https://i.ibb.co/mGPWBkq/thumbnail.png
 date: 2024-02-20
 tags: 
-categories: Paper-Review
+categories: paper-review
 use_math: true
 ---
 

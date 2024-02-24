@@ -4,7 +4,7 @@ title: "[논문 리뷰] Adversarial Audio Synthesis"
 image: https://i.ibb.co/8xJ0sCK/thumbnail.png
 date: 2024-02-08
 tags: 
-categories: Paper-Review
+categories: paper-review
 use_math: true
 ---
 

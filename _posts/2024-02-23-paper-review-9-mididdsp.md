@@ -4,7 +4,7 @@ title: "[논문 리뷰] MIDI-DDSP: Detailed Control of Musical Performance via H
 image: https://i.ibb.co/gD3dznW/thumbnail.png
 date: 2024-02-23
 tags: 
-categories: Paper-Review
+categories: paper-review
 use_math: true
 ---
 

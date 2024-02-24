@@ -4,7 +4,7 @@ title: "[논문 리뷰] GANSynth: Adversarial Neural Audio Synthesis"
 image: https://i.ibb.co/1XCTHTR/thumbnail.png
 date: 2024-02-12
 tags: 
-categories: Paper-Review
+categories: paper-review
 use_math: true
 ---
 

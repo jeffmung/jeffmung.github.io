@@ -4,7 +4,7 @@ title: "[논문 리뷰] DDSP: Differentiable Digital Signal Processing"
 image: https://i.ibb.co/nkKS7pc/thumbnail.png
 date: 2024-02-16
 tags: 
-categories: Paper-Review
+categories: paper-review
 use_math: true
 ---
 

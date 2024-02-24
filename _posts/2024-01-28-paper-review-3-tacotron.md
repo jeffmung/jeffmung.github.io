@@ -4,7 +4,7 @@ title: "[논문 리뷰] Tacotron: Towards End-to-End Speech Synthesis"
 image: https://i.ibb.co/Hhr8FJ4/thumbnail.png
 date: 2024-01-28
 tags: 
-categories: Paper-Review
+categories: paper-review
 use_math: true
 ---
 
