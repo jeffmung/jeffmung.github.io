@@ -1,11 +1,3 @@
-{% if paginator.page %}
-  {% assign offset = paginator.page | minus:1 | times:paginator.per_page %}
-  {% assign currentPage = paginator.page %}
-{% else %}
-  {% assign offset = 0 %}
-  {% assign currentPage = 1 %}
-{% endif %}
-
 <div class="c-posts o-opacity"  data-page="{{ currentPage }}" data-totalPages="{{ paginator.total_pages }}">
     {% for post in site.categories[page.title] limit:site.paginate offset:offset %}
     <article class="c-post">
@@ -25,9 +17,3 @@
     </article> <!-- /.c-post -->
     {% endfor %}
   </div> <!-- /.c-posts -->
-
-{% assign postCount = site.posts | size %}
-{% assign postsCovered = site.paginate | plus:offset %}
-{% if postsCovered < postCount %}
-  <button class="c-load-more c-btn c-btn--middle">Load more posts</button>
-{% endif %}

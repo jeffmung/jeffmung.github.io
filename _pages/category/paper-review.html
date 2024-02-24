@@ -3,6 +3,21 @@ layout: home
 title: paper-review
 permalink: /category/paper-review/
 ---
+{% if paginator.page %}
+  {% assign offset = paginator.page | minus:1 | times:paginator.per_page %}
+  {% assign currentPage = paginator.page %}
+{% else %}
+  {% assign offset = 0 %}
+  {% assign currentPage = 1 %}
+{% endif %}
+
 {% include header.html %}
 {% include category-list.html %}
+
+{% assign postCount = site.posts | size %}
+{% assign postsCovered = site.paginate | plus:offset %}
+{% if postsCovered < postCount %}
+  <button class="c-load-more c-btn c-btn--middle">Load more posts</button>
+{% endif %}
+
 {% include categories.html %}
