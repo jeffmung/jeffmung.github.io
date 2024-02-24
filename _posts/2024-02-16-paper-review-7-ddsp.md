@@ -176,7 +176,7 @@ DDSP 모델의 파라미터는 GANSynth나 WaveRNN [(Lamtharn Hantrakul et al., 
 
 ## Multi-Scale Spectral Loss
 
-학습의 손실 함수로는 spectral loss를 기반으로 한 multi-scale spectral loss를 제안합니다. 먼저 원래 오디오와 합성된 오디오에 대하여 스펙트로그램의 크기(magnitude) $\small S_i$와 $\small hat{S}_i$를 각각 계산합니다. 그 뒤 FFT 크기 $\small i$에 대한 손실 함수를 다음과 같이 정의합니다.
+학습의 손실 함수로는 spectral loss를 기반으로 한 multi-scale spectral loss를 제안합니다. 먼저 원래 오디오와 합성된 오디오에 대하여 스펙트로그램의 크기(magnitude) $\small S_i$와 $\small \hat{S}_i$를 각각 계산합니다. 그 뒤 FFT 크기 $\small i$에 대한 손실 함수를 다음과 같이 정의합니다.
 
 <br>
 <center> $ L_i = \lVert S_i - \hat{S}_i \rVert_{1} + \alpha \lVert \log S_i - \log \hat{S}_i \rVert_{1} $ </center>
