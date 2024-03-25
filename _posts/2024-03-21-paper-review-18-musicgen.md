@@ -191,4 +191,4 @@ MusicLM 논문에서 했던 것과 같이 모델이 학습 데이터셋을 외�
 
 [Jade Copet, Felix Kreuk, Itai Gat, Tal Remez, David Kant, Gabriel Synnaeve, Yossi Adi and Alexandre Défossez. Simple and Controllable Music Generation. In NeurIPS, 2023.](https://proceedings.neurips.cc/paper_files/paper/2023/hash/94b472a1842cd7c56dcb125fb2765fbd-Abstract-Conference.html)
 
-[Official Source Code of MusicGen](github.com/facebookresearch/audiocraft)
+[Official Source Code of MusicGen](https://github.com/facebookresearch/audiocraft)
