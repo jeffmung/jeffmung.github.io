@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "[논문 리뷰] Improving Semi-Supervised Differentiable Synthesizer Sound Matching for Practical Applications"
+title: "Improving Semi-Supervised Differentiable Synthesizer Sound Matching for Practical Applications [TASLP, 2023]"
+description: SSSM-DDSP는 2021년 ISMIR에 발표된 DiffSynth의 후속 논문으로 기존 연구에서 미분 가능한 엔벨로프(envelope), 리버브, 코러스 FX의 설계 방법과 이 모듈들이 포함되었을 때의 결과 분석이 새롭게 추가되었습니다.
 image: https://i.ibb.co/NpxvGH2/thumbnail.png
 date: 2024-03-27
 tags: 

@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "[논문 리뷰] RAVE: A Variational Autoencoder for Fast and High-Quality Neural Audio Synthesis"
+title: "RAVE: A Variational Autoencoder for Fast and High-Quality Neural Audio Synthesis [preprint, 2021]"
+description: RAVE는 고품질(high-fidelity)의 음악이나 음성을 빠른 속도로 생성할 수 있는 VAE와 적대적(adversarial) 학습, 다중 밴드 분해(multi-band decomposition)을 기반으로 한 모델입니다.
 image: https://i.ibb.co/SwcTrq6/thumbnail.png
 date: 2024-03-26
 tags: 

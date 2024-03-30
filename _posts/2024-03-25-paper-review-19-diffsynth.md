@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "[논문 리뷰] Synthesizer Sound Matching with Differentiable DSP"
+title: "Synthesizer Sound Matching with Differentiable DSP [ISMIR, 2021]"
+description: 이 논문에서는 미분 가능한(differentiable) DSP 모듈을 사용하여 파라미터 손실 뿐만 아니라 스펙트럼 손실(spectral loss)을 통한 엔드 투 엔드 학습이 가능한 사운드 매칭 모델을 제안합니다.
 image: https://i.ibb.co/n36gRwT/thumbnail.png
 date: 2024-03-25
 tags: 

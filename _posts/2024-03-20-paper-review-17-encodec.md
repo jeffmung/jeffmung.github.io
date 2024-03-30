@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "[논문 리뷰] High Fidelity Neural Audio Compression"
+title: "High Fidelity Neural Audio Compression [TMLR, 2023]"
+description: EnCodec은 Meta AI에서 개발한 신경망 오디오 코덱(neural audio codec)으로 낮은 비트레이트에서도 복원 품질(high fidelity)이 높고 빠른 계산 시간으로 실시간(realtime) 활용이 가능합니다.
 image: https://i.ibb.co/ynBJCyv/thumbnail.png
 date: 2024-03-20
 tags: 

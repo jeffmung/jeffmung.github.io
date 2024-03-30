@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "[논문 리뷰] Simple and Controllable Music Generation"
+title: "Simple and Controllable Music Generation [NeurIPS, 2023]"
+description: Meta AI에서 개발한 MusicGen은 텍스트 또는 멜로디를 조건으로 입력받아 음악을 생성하는 모델입니다.
 image: https://i.ibb.co/HxbfPhS/thumbnail.png
 date: 2024-03-21
 tags: 

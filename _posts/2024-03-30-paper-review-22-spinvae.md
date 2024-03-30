@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "[논문 리뷰] Synthesizer Preset Interpolation Using Transformer Auto-Encoders"
+title: "Synthesizer Preset Interpolation Using Transformer Auto-Encoders [ICASSP, 2023]"
+description: 이 논문은 Frequency Modulation (FM) 기반의 신디사이저에서 두 프리셋(preset)이 주어졌을 때 보간된(interpolated) 소리를 생성하는 SPINVAE 모델을 제안합니다.
 image: https://i.ibb.co/7kd0Ztc/thumbnail.png
 date: 2024-03-30
 tags: 
