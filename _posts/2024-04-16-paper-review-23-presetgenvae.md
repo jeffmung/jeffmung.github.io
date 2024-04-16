@@ -19,7 +19,7 @@ use_math: true
 
 ## General Architecture
 
-모델은 먼저 스펙트로그램 $\small \mathbf{x}$ 를 입력으로 받아 CNN 기반의 VAE 인코더로 잠재 분포(latent distribution) $\small \mathbf{z}_0$ 를 만들고 Flow 기반 모델을 통해 같은 차원의 잠재 벡터 $\small $\mathbf{z}\_K$ 로 변환합니다. 파라미터 $\small \mathbf{v}$ 를 예측하는 모델은 역시 Flow 기반으로 변환 $\small \mathbf{v} = U(\mathbf{z}\_K)$ 를 수행합니다. 또한 VAE 디코더 $\small p\_{\theta} (\mathbf{z}\_0 \vert \mathbf{x})$ 도 학습에 사용됩니다. 전체 모델 구조는 아래 그림에 요약되어 있습니다.
+모델은 먼저 스펙트로그램 $\small \mathbf{x}$ 를 입력으로 받아 CNN 기반의 VAE 인코더로 잠재 분포(latent distribution) $\small \mathbf{z}_0$ 를 만들고 Flow 기반 모델을 통해 같은 차원의 잠재 벡터 $\small \mathbf{z}\_K$ 로 변환합니다. 파라미터 $\small \mathbf{v}$ 를 예측하는 모델은 역시 Flow 기반으로 변환 $\small \mathbf{v} = U(\mathbf{z}\_K)$ 를 수행합니다. 또한 VAE 디코더 $\small p\_{\theta} (\mathbf{z}\_0 \vert \mathbf{x})$ 도 학습에 사용됩니다. 전체 모델 구조는 아래 그림에 요약되어 있습니다.
 
 <p align="center">
 <img src="https://i.ibb.co/c3gxdfP/architecture.png" alt="architecture" border="0">
@@ -29,7 +29,7 @@ use_math: true
 
 ## Latent Space Normalizing Flows
 
-VAE의 사후 분포(posterior distribution)를 모델링하는 $\small q_{\phi} (\mathbf{z} \vert \mathbf{x})$ 와 사전 분포 $\small p_{\theta} (\mathbf{z})$, 디코더 $\small p_{\theta} (\mathbf{x} \vert \mathbf{z}) 에 대해서 ELBO에 의한 학습의 손실 함수는 다음과 같습니다.
+VAE의 사후 분포(posterior distribution)를 모델링하는 $\small q_{\phi} (\mathbf{z} \vert \mathbf{x})$ 와 사전 분포 $\small p_{\theta} (\mathbf{z})$, 디코더 $\small p_{\theta} (\mathbf{x} \vert \mathbf{z})$ 에 대해서 ELBO에 의한 학습의 손실 함수는 다음과 같습니다.
 
 <br>
 \begin{equation}
@@ -49,7 +49,7 @@ Normalizing Flows는 간단한 분포 (e.g. 가우시안 분포) $\small \mathbf
 
 <br>
 \begin{equation}
-\mathcal{L}\_{\theta, \phi, \psi}(\mathbf{x}) = \mathbb{E}\_{q\_{\phi}(\mathbf{z\_0} \vert \mathbf{x})} \left[ - \log p\_{\theta}(\mathbf{x} \vert \mathbf{z}\_K) + \log q\_{\phi} (\mathbf{z}\_0 \vert \mathbf{x}) - \sum\_{k=1}^K \log \vert \det J\_{T\_{k}} (\mathbf{z}\_{k-1}) \vert - \log p\_{\theta} (\mathbf{z\_K})
+\mathcal{L}\_{\theta, \phi, \psi}(\mathbf{x}) = \mathbb{E}\_{q\_{\phi}(\mathbf{z\_0} \vert \mathbf{x})} \left[ - \log p\_{\theta}(\mathbf{x} \vert \mathbf{z}\_K) + \log q\_{\phi} (\mathbf{z}\_0 \vert \mathbf{x}) - \sum\_{k=1}^K \log \vert \det J\_{T\_{k}} (\mathbf{z}\_{k-1}) \vert - \log p\_{\theta} (\mathbf{z\_K}) \right]
 \end{equation}
 <br>
 
