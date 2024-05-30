@@ -127,6 +127,8 @@ Dexed에는 조작할 수 있는 155개의 파라미터가 있지만 10개는 �
 
 1개의 MIDI 노트만 사용했을 때보다 성능이 약간 증가하는 것을 알 수 있습니다.
 
+<br><br>
+
 ## Reference
 
 [Gwendal Le Vaillant, Thierry Dutoit and Sébastien Dekeyser. Improving Synthesizer Programming from Variational Autoencoders Latent Space. In DAFx, 2021.](https://ieeexplore.ieee.org/document/9768218/)
