@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "BEATs: Audio Pre-Training with Acoustic Tokenizers [ICML, 2022]"
-description: BEATs는 이산화된 토큰 레이블을 예측하도록 하는 방법을 오디오 도메인에 처음으로 적용한 자기지도학습 모델입니다.
+description: BEATs 논문 리뷰. BEATs는 acoustic tokenizer로 만들어진 descritized token label을 audio SSL 모델이 예측하도록 하는 self-supervised learning 모델입니다.
 image: https://i.ibb.co/pP4Mv0D/thumbnail.png
 date: 2024-06-12
 tags: 

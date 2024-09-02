@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "[오디오 신호 처리] 1. 소리의 구성 요소"
+description: 소리의 구성 요소에는 주파수, 파장, 진폭, 강도, 음량, 위상, 음색 등이 있습니다.
 image: "https://i.ibb.co/Q61k2dd/thumbnail.png"
 date: 2023-12-07
 tags:
