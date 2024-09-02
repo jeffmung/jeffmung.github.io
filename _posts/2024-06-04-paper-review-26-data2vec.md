@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "data2vec: A General Framework for Self-supervised Learning in Speech, Vision and Language [ICML, 2022]"
-description: data2vec은 자기지도학습 방법을 도메인에 따라 따로 분리하지 않고 동일하게 사용할 수 있도록 개발된 프레임워크입니다.
+description: data2vec 논문 리뷰. data2vec은 self-supervised learning을 도메인에 따라 따로 분리하지 않고 동일하게 사용할 수 있도록 개발된 멀티모달 프레임워크입니다.
 image: https://i.ibb.co/FDV62JF/thumbnail.png
 date: 2024-06-04
 tags: 
